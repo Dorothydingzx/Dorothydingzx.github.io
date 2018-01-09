@@ -108,7 +108,7 @@
 <meta property="og:site_name" content="Hello, life">
 <meta property="og:description" content="显式方法：需要很小的时间增量步，仅依赖于模型的最高固有频率，与载荷的类型和持续时间无关。通常的模拟需要取10000~1000000个增量步，每个增量步的计算成本相对较低。隐式方法：对时间增量步的大小没有内在的限制，增量的大小通常取决于精度和收敛情况。典型的隐式模拟所采用的增量步数目比显式模拟小几个数量级，单由于在每个增量步中必须求解一套全域的方程组，故对于每一个增量步的成本，要远高于显式方法。 1">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-08T07:30:24.926Z">
+<meta property="og:updated_time" content="2018-01-09T04:02:31.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ABAQUS学习笔记2—-显式非线性动态分析">
 <meta name="twitter:description" content="显式方法：需要很小的时间增量步，仅依赖于模型的最高固有频率，与载荷的类型和持续时间无关。通常的模拟需要取10000~1000000个增量步，每个增量步的计算成本相对较低。隐式方法：对时间增量步的大小没有内在的限制，增量的大小通常取决于精度和收敛情况。典型的隐式模拟所采用的增量步数目比显式模拟小几个数量级，单由于在每个增量步中必须求解一套全域的方程组，故对于每一个增量步的成本，要远高于显式方法。 1">
@@ -435,6 +435,15 @@
 <h3 id="3-4-质量缩放以控制时间增量"><a href="#3-4-质量缩放以控制时间增量" class="headerlink" title="3.4 质量缩放以控制时间增量"></a>3.4 质量缩放以控制时间增量</h3><p>由于质量密度影响稳定极限，所以在某些情况下，缩放质量密度能潜在地提高分析的效率。例如，许多模型需要复杂的离散，因此有些区域常常包含控制稳定极限的非常小或者形状极差的单元。这些控制单元很少，而且可能只存在于局部区域，通过仅增加这些控制单元的质量，就能显著地增加稳定极限，而对模型的整体动力学行为的影响是可以忽略的。<br>在ABAQUS/Explicit中的自动质量缩放功能，可以阻止这些有缺陷的单元稳定极限的影响。质量缩放可采用两种基本方法：（1）直接定义一个缩放因子；（2）给那些质量需要缩放的单元逐个定义所需要的稳定时间增量。</p>
 <h3 id="3-5-稳定极限的影响因素"><a href="#3-5-稳定极限的影响因素" class="headerlink" title="3.5 稳定极限的影响因素"></a>3.5 稳定极限的影响因素</h3><p><strong>材料</strong>：通过对膨胀波波速的限制作用来影响稳定极限。<br>线性材料：波速是常数，稳定极限的唯一变化来自于最小单元尺寸的变化。<br>非线性材料：当材料屈服和材料刚度变化时波速发生变化。在整个分析过程中，ABAQUS/Explicit监督在模型中材料的有效波速，并应用在每个单元中的当前材料状态估算稳定性。在屈服之后刚度下降，减小了波速，相应地增加了稳定极限。<br><strong>网格</strong>：稳定极限大致与最短的单元尺寸成比例，应采用尽可能均匀的网格。ABAQUS/Explicit在状态文件（.sta）中提供了网格中具有最低稳定极限的10个单元的清单。</p>
 <h3 id="3-6-数值不稳定"><a href="#3-6-数值不稳定" class="headerlink" title="3.6 数值不稳定"></a>3.6 数值不稳定</h3><p>在大多数情况下，ABAQUS/Explicit对于大多数单元保持了稳定性。但是，如果定义了弹簧和减振器单元，在分析过程中有可能成为不稳定。如果发生了数值不稳定，典型的情况是结果变得无界，没有物理意义，而且解常常是振荡的。</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><ul>
+<li>ABAQUS/Explicit应用中心差分方法对时间进行动力学显式积分。</li>
+<li>显式方法需要许多小的时间增量，但因为不必同时求解联立方程，所以每个增量计算成本很低。</li>
+<li>随着模型尺寸的增加，显式方法比隐式方法能够节省大量的计算成本。</li>
+<li>稳定极限是能够用来前推动力学状态并仍保持精度的最大时间增量。</li>
+<li>整个分析过程中，ABAQUS/Explicit自动地控制时间增量值以保持稳定性。</li>
+<li>随着材料刚度的增加，稳定极限降低；随着材料密度的增加，稳定极限提高。</li>
+<li>对于单一材料的网格，稳定极限大致与最小单元的尺寸成比例。</li>
+</ul>
 
       
     </div>
@@ -500,6 +509,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/09/“ABAQUS学习笔记3-显式非线性动态分析”/" rel="prev" title="ABAQUS学习笔记3-显式非线性动态分析">
+                ABAQUS学习笔记3-显式非线性动态分析 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -576,7 +589,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -657,7 +670,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ABAQUS-Explicit适用的问题类型"><span class="nav-number">1.</span> <span class="nav-text">1 ABAQUS/Explicit适用的问题类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动力学显式有限元方法"><span class="nav-number">2.</span> <span class="nav-text">2 动力学显式有限元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-显式时间积分"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 显式时间积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-比较隐式和显式积分程序"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 比较隐式和显式积分程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-自动时间增量和稳定性"><span class="nav-number">3.</span> <span class="nav-text">3 自动时间增量和稳定性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-显式方法的条件稳定性"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 显式方法的条件稳定性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-稳定性限制的定义"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 稳定性限制的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-ABAQUS-Explicit中的完全自动时间增量和固定时间增量"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 ABAQUS/Explicit中的完全自动时间增量和固定时间增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-质量缩放以控制时间增量"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 质量缩放以控制时间增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-稳定极限的影响因素"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 稳定极限的影响因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-数值不稳定"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 数值不稳定</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-ABAQUS-Explicit适用的问题类型"><span class="nav-number">1.</span> <span class="nav-text">1 ABAQUS/Explicit适用的问题类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-动力学显式有限元方法"><span class="nav-number">2.</span> <span class="nav-text">2 动力学显式有限元方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-显式时间积分"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 显式时间积分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-比较隐式和显式积分程序"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 比较隐式和显式积分程序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-自动时间增量和稳定性"><span class="nav-number">3.</span> <span class="nav-text">3 自动时间增量和稳定性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-显式方法的条件稳定性"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 显式方法的条件稳定性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-稳定性限制的定义"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 稳定性限制的定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-ABAQUS-Explicit中的完全自动时间增量和固定时间增量"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 ABAQUS/Explicit中的完全自动时间增量和固定时间增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-4-质量缩放以控制时间增量"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 质量缩放以控制时间增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-稳定极限的影响因素"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 稳定极限的影响因素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-6-数值不稳定"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 数值不稳定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-小结"><span class="nav-number">4.</span> <span class="nav-text">4 小结</span></a></li></ol></div>
             
 
           </div>
