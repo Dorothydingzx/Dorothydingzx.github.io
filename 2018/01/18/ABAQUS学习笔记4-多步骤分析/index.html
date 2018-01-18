@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Nxote" />
+  <meta name="keywords" content="有限元理论," />
 
 
 
@@ -100,16 +100,18 @@
 
 
 
-<meta name="description" content="Just Do It">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello, life">
-<meta property="og:url" content="http://dorothydingzx.github.io/archives/index.html">
+<meta name="description" content="载荷（load）：使结构的响应从初始状态到发生变化的任何事情，如非零边界条件、施加的位移、施加的场等。载荷历史（load history）：用来代表作用在模型上的复杂荷载，如某一时间段内按照一定顺序施加到模型不同部分的载荷、幅值随时间变化的载荷。分析步（step）：载荷历史划分为若干分析步，每个分析步是用户指定的一个“时间”段，该时间段内。分析过程：每个分析步中，用户指定响应的类型，如动态载荷、地">
+<meta name="keywords" content="有限元理论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ABAQUS学习笔记4——多步骤分析">
+<meta property="og:url" content="http://dorothydingzx.github.io/2018/01/18/ABAQUS学习笔记4-多步骤分析/index.html">
 <meta property="og:site_name" content="Hello, life">
-<meta property="og:description" content="Just Do It">
+<meta property="og:description" content="载荷（load）：使结构的响应从初始状态到发生变化的任何事情，如非零边界条件、施加的位移、施加的场等。载荷历史（load history）：用来代表作用在模型上的复杂荷载，如某一时间段内按照一定顺序施加到模型不同部分的载荷、幅值随时间变化的载荷。分析步（step）：载荷历史划分为若干分析步，每个分析步是用户指定的一个“时间”段，该时间段内。分析过程：每个分析步中，用户指定响应的类型，如动态载荷、地">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-18T06:14:56.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello, life">
-<meta name="twitter:description" content="Just Do It">
+<meta name="twitter:title" content="ABAQUS学习笔记4——多步骤分析">
+<meta name="twitter:description" content="载荷（load）：使结构的响应从初始状态到发生变化的任何事情，如非零边界条件、施加的位移、施加的场等。载荷历史（load history）：用来代表作用在模型上的复杂荷载，如某一时间段内按照一定顺序施加到模型不同部分的载荷、幅值随时间变化的载荷。分析步（step）：载荷历史划分为若干分析步，每个分析步是用户指定的一个“时间”段，该时间段内。分析过程：每个分析步中，用户指定响应的类型，如动态载荷、地">
 
 
 
@@ -138,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://dorothydingzx.github.io/archives/"/>
+  <link rel="canonical" href="http://dorothydingzx.github.io/2018/01/18/ABAQUS学习笔记4-多步骤分析/"/>
 
 
 
 
 
-  <title>归档 | Hello, life</title>
+  <title>ABAQUS学习笔记4——多步骤分析 | Hello, life</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,411 +309,237 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/18/ABAQUS学习笔记4-多步骤分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dorothy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello, life">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">ABAQUS学习笔记4——多步骤分析</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-18T12:14:44+08:00">
+                2018-01-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 11 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ABAQUS/" itemprop="url" rel="index">
+                    <span itemprop="name">ABAQUS</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/01/18/ABAQUS学习笔记4-多步骤分析/" class="leancloud_visitors" data-flag-title="ABAQUS学习笔记4——多步骤分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/18/ABAQUS学习笔记4-多步骤分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记4——多步骤分析</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-18T12:14:44+08:00"
-              content="2018-01-18" >
-          01-18
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/13/Bolted-connections-in-Eurocode-3-3/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(3)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-13T14:16:54+08:00"
-              content="2018-01-13" >
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/12/Bolted-connections-in-Eurocode-3-2/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(2)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T17:25:40+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/11/Bolted-connections-in-Eurocode-3-1/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(1)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-11T15:43:16+08:00"
-              content="2018-01-11" >
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p><strong>载荷（load）</strong>：使结构的响应从初始状态到发生变化的任何事情，如非零边界条件、施加的位移、施加的场等。<br><strong>载荷历史（load history）</strong>：用来代表作用在模型上的复杂荷载，如某一时间段内按照一定顺序施加到模型不同部分的载荷、幅值随时间变化的载荷。<br><strong>分析步（step）</strong>：载荷历史划分为若干分析步，每个分析步是用户指定的一个“时间”段，该时间段内。<br><strong>分析过程</strong>：每个分析步中，用户指定响应的类型，如动态载荷、地震加速度的动态响应。<br>从一个分析步到另一个分析步，分析过程可能发生变化。显式分析和隐式分析均可以包含多个分析步，但同一个分析作业中，不能组合显式和隐式分析。<br>两种分析过程：一般性分析（general）、线性摄动（linear perturbation）<br><strong>一般分析步（general step）</strong>：模型的响应可能是线性的或者非线性的，ABAQUS/Standard、ABAQUS/Explicit中均有<br><strong>摄动分析（perturbation step）</strong>：响应只能是线性的，仅适用于ABAQUS/Standard<br><a id="more"></a></p>
+<h2 id="1-一般分析过程"><a href="#1-一般分析过程" class="headerlink" title="1 一般分析过程"></a>1 一般分析过程</h2><p>一般分析步：以前一个一般分析步结束时的变形状态作为起点，所有的一般性分析过程分享相同的施加载荷和定义“时间”的概念。</p>
+<h3 id="1-1-一般分析步中的时间"><a href="#1-1-一般分析步中的时间" class="headerlink" title="1.1 一般分析步中的时间"></a>1.1 一般分析步中的时间</h3><p><strong>增长的总体时间（total time）</strong>：贯穿于所有的一般分析步，是每个一般分析步的总步骤时间的积累。<br><strong>分析步时间（step time）</strong>：每个分析步各自的时间尺度，从零开始。<br>随时间变化的载荷和边界条件，可以以任何一种时间尺度来定义。</p>
+<h3 id="1-2-在一般分析步中指定载荷"><a href="#1-2-在一般分析步中指定载荷" class="headerlink" title="1.2 在一般分析步中指定载荷"></a>1.2 在一般分析步中指定载荷</h3><p>在一般分析步中，载荷必须以<strong>总量</strong>而不是以增量的形式给定。例如：第1个分析步中，集中载荷的值为1000kN，第2个分析步中增加到3000kN，在这两个分析步中给出的载荷值应该分别为1000kN和3000kN，而不是1000kN和2000kN。<br>默认情况下，所有前面定义的载荷都传递到当前的分析步。在当前分析步中，可以定义另外的载荷以及改变任何前面定义的载荷，如改变量值。<br>任何前面定义的载荷，如果在当前分析步中没有指定对其进行修改，那么它将遵循它的相关幅值的定义，所提供的幅值曲线是以总体时间的形式定义的，否则，这个载荷将保持在前一个一般分析步结束时的量值上。</p>
+<h2 id="2-线性摄动分析"><a href="#2-线性摄动分析" class="headerlink" title="2 线性摄动分析"></a>2 线性摄动分析</h2><p><strong>模型的基态</strong>：线性摄动分析步的起点，可以是初始条件所指定的模型的状态（第1个分析步为线性摄动分析）、前一个一般分析步结束时的模拟状态。<br>摄动分析步中结构的响应为线性的，但模型在前一个分析步中可以有非线性响应，ABAQUS/Standard应用<strong>当前的弹性模量</strong>作为摄动分析的线性刚度。弹塑性材料：初始弹性模量；超弹性材料：切线模量。<br>在摄动分析步中的载荷应该足够小，这样模型的响应将不会过多地偏离切线模量所预测的响应。如果模拟中包括了接触，在摄动分析步中两个接触面之间的接触状态不会发生改变。</p>
+<h3 id="2-1-线性摄动分析步中的时间"><a href="#2-1-线性摄动分析步中的时间" class="headerlink" title="2.1 线性摄动分析步中的时间"></a>2.1 线性摄动分析步中的时间</h3><p>摄动分析步后的一般分析步，其将应用前一个一般分析步结束时的模型的状态作为起点，而不是摄动分析步结束时的模型的状态。线性摄动分析步的响应对模型不产生持久的影响，ABAQUS/Standard将其步骤时间定义成一个<strong>非常小的量</strong>（$10^{-36}$），这样，将其添加到总累积时间上并没有任何影响，唯一的例外是模态动态过程（modal dynamic procedure）。</p>
+<h3 id="2-2-在线性摄动分析步中指定载荷"><a href="#2-2-在线性摄动分析步中指定载荷" class="headerlink" title="2.2 在线性摄动分析步中指定载荷"></a>2.2 在线性摄动分析步中指定载荷</h3><p>线性摄动分析步中所指定的载荷和边界条件总是在<strong>该分析步内有效</strong>。线性摄动分析步中给定的载荷量值（包括预设的边界条件量值），总是载荷的<strong>摄动（增量）</strong>，而不是载荷的总量值。因此，任何结果变量的值，不包含在基态中的变量的值。<br>在ABAQUS/Standard中，一下过程总是采用线性摄动分析：线性特征屈曲（linear eigenvalue buckling）、频率提取（frequency extraction）、瞬时模态的动态分析（transient modal dynamics）、随机响应分析（random response）、响应谱分析（response spectrum）、稳态动力分析（steady-state dynamics）。<br><strong>静态分析</strong>可以是一般过程分析，也可以是线性摄动分析。</p>
+<h2 id="3-重启动分析"><a href="#3-重启动分析" class="headerlink" title="3 重启动分析"></a>3 重启动分析</h2><p>ABAQUS的重启动分析（restart analysis）功能，允许重新启动一个模拟，并计算模型关于新增载荷历史的响应。</p>
+<h3 id="3-1-重启动文件和状态文件"><a href="#3-1-重启动文件和状态文件" class="headerlink" title="3.1 重启动文件和状态文件"></a>3.1 重启动文件和状态文件</h3><p>ABAQUS/Standard的重启动文件（.rec）、ABAQUS/Explicit的状态文件（.abq）包含了继续进行前面的分析所必需的信息。ABAQUS/Explicit中，为了重新启动一个分析，也要用到打包文件（.pac）和选择结果文件（.sel），在第1个作业完成后必须保存这两个文件，且均需要输出数据库文件（.odb）。<br>对于大型模型，重启动文件可能会很大，当需要重新启动数据时，默认情况下每个增量步或者间隔都会讲写入数据写入重新启动文件中，因此，控制重启动数据写入的频率非常重要。有时在一个分析不中，<strong>允许覆盖写入重启动文件中的数据</strong>是很有用的，这样对于每个分析步，在分析结束时仅有一组重启动数据，对应于每个分析步结束时的模型状态。如果由于某种原因中断了分析的过程，分析可以从最后一次写入重启动数据的地方继续进行。</p>
+<h3 id="3-2-重启动分析"><a href="#3-2-重启动分析" class="headerlink" title="3.2 重启动分析"></a>3.2 重启动分析</h3><p>当利用前面分析的结果重新启动一个模拟时，在模拟的载荷历史中要指定一个特殊点，作为重新启动分析的出发位置。但在重启动分析中，应用的模型必须与原始分析中到达重启动时刻所用的模型一致，具体要求是：</p>
+<ul>
+<li>重启动分析的模型不能修改或增加任何已经在原始分析模型中定义过的几何体、网格、材料、截面、梁截面轮廓、材料方向、相互作用性质或者约束；</li>
+<li>不能修改在重启动位置当时或者之前的任何分析步、载荷、边界条件、场或者相互作用。</li>
+</ul>
+<p>然而，在重启动分析模型中可以定义新的集合和幅值曲线。</p>
+<p><strong>继续被中断的作业</strong><br>重启动分析可以直接从前面分析的指定分析步和增量步中继续进行。如果给定的分析步和增量步并没有对应于前面分析步的结束为止，在进行任何新的分析步之前，ABAQUS将试图完成这个原始的分析步。<br>在ABAQUS/Explicit中进行的某些重启动分析，是简单地继续一个长的分析步（如：由于作业超过了时间限制而中止），通过使用在命令行中的<strong>recover命令</strong>，可以重新启动运行这个作业：<br><code>abaqus job=jobname recover</code></p>
+<p><strong>继续增加新的分析步</strong><br>如果前一个分析顺利完成，并且已经观察了结果，希望在载荷历史中增加新的分析步，那么指定的分析步和增量步必须是前面分析中的最后分析步和最后增量步。</p>
+<p><strong>改变分析</strong><br>有时希望从一个中间点重启动分析，并以某种方式改变余下的载荷历史，例如：增加更多的输出要求、改变载荷、调整分析控制。<br>这可能是必要的，例如：当一个分析步超过了其最大增量步的数目时。如果由于超过了增量步的最大数目而重新启动一个分析，ABAQUS/Standard会认为这个分析是整个分析步的一部分，它会试图完成该分析步，并立刻再一次超出增量步的最大数目。<br>这种情况下，应该设置在指定的分析步和增量步中必须终止当前的分析，然后模拟可以用一个新的分析步继续。例如：如果一个分析步仅允许最多20个增量步，少于这个分析步所需要的增量步数目，则需要在整个分析步的定义中定义一个新的分析步，它包括施加的载荷和边界条件。新的分析步与原始分析步中运算的规定相同，而仅作如下修改：</p>
+<ul>
+<li>应该增加增量步的数目。</li>
+<li>新的分析步的总时间=原分析步的总时间-完成第1次运算分析的时间。</li>
+<li>任何指定以分析步的时间形式定义的幅值（amplitude）需要重新定义，以反映分析西部的新的时间尺度；以总时间行驶时定义的幅值无需改变，应用在上面给出的修改。</li>
+</ul>
+<p>在一般分析步中，由于任何载荷的量值或给定的边界条件总是总体量值，所以它们保持不变。</p>
+<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><ul>
+<li>在一个分析作业中，不允许隐式和显式分析步同时存在。</li>
+<li>一个分析步就是一段“时间”，在这个时间段内计算模型对于一组给定载荷和边界条件的响应。在分析步中所采用的特殊分析过程决定了这个响应的特征。</li>
+<li>在一般分析步中，结构的响应可以是线性的，也可以是非线性的。</li>
+<li>每一个一般分析步的开始状态都是前一个一般分析步的结束状态；在一个模拟中，模型的响应涉及一系列的一般分析步。</li>
+<li>线性摄动分析（仅适用于ABAQUS/Standard）计算结构对于摄动载荷的线性响应。这个响应是相对于基态而言的，而基态定义为在前一个一般分析步结束时的模型状态。</li>
+<li>只要保存了重启动文件，就可以重新启动分析。对于整个模拟过程，重启动文件可以用来继续一个中断的分析或者增加新的载荷历史。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/09/PS修复废片-Camera-RAW/" itemprop="url">
-              
-                <span itemprop="name">PS修复废片-Camera Raw</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-09T16:34:41+08:00"
-              content="2018-01-09" >
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记3——显式非线性动态分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-09T12:03:36+08:00"
-              content="2018-01-09" >
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/08/ABAQUS学习笔记2—-显式非线性动态分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记2——显式非线性动态分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-08T22:22:32+08:00"
-              content="2018-01-08" >
-          01-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/07/ABAQUS学习笔记1-非线性/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记1——非线性</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-07T15:07:00+08:00"
-              content="2018-01-07" >
-          01-07
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/06/PS给图片添加蓝天白云/" itemprop="url">
-              
-                <span itemprop="name">PS给图片添加蓝天白云</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-06T10:36:57+08:00"
-              content="2018-01-06" >
-          01-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/05/PS海景照后处理/" itemprop="url">
-              
-                <span itemprop="name">PS海景照后处理</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-05T14:00:46+08:00"
-              content="2018-01-05" >
-          01-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Dorothy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://dorothydingzx.github.io/2018/01/18/ABAQUS学习笔记4-多步骤分析/" title="ABAQUS学习笔记4——多步骤分析">http://dorothydingzx.github.io/2018/01/18/ABAQUS学习笔记4-多步骤分析/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-ND</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+
+      </div>
+    
+
+      <div>
+        
+        
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/有限元理论/" rel="tag"># 有限元理论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/13/Bolted-connections-in-Eurocode-3-3/" rel="next" title="Bolted connections in Eurocode 3(3)">
+                <i class="fa fa-chevron-left"></i> Bolted connections in Eurocode 3(3)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -719,6 +547,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -739,8 +571,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -826,6 +667,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-一般分析过程"><span class="nav-number">1.</span> <span class="nav-text">1 一般分析过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-一般分析步中的时间"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 一般分析步中的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-在一般分析步中指定载荷"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 在一般分析步中指定载荷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-线性摄动分析"><span class="nav-number">2.</span> <span class="nav-text">2 线性摄动分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-线性摄动分析步中的时间"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 线性摄动分析步中的时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-在线性摄动分析步中指定载荷"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 在线性摄动分析步中指定载荷</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-重启动分析"><span class="nav-number">3.</span> <span class="nav-text">3 重启动分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-重启动文件和状态文件"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 重启动文件和状态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-重启动分析"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 重启动分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-小结"><span class="nav-number">4.</span> <span class="nav-text">4 小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -946,11 +803,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
