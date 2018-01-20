@@ -100,18 +100,18 @@
 
 
 
-<meta name="description" content="1 动态振荡的阻尼在模型中加入阻尼的两个原因：限制数值振荡、为系统增加物理的阻尼，ABAQUS/Explicit提供的在分析中加入阻尼的方法：体粘性、粘性压力、材料阻尼、离散减振器。 1.1 体粘性体粘性引入了与体积应变相关的阻尼，目的是改进对高速动力学事件的模拟。ABAQUS/Explicit包括体粘性的线性和二次的形式，体粘性参数一般很少修改默认值，仅作为一个数值影响，在材料点的应力中不包括体">
+<meta name="description" content="6 在ABAQUS/Explicit中定义接触两种模拟接触相互作用的算法：通用接触（general contact）算法：允许非常简单地定义接触，对于接触表面类型限制很少接触对（contact pair）算法：允许模拟一些采用通用接触算法不能够模拟的相互作用行为，对于接触表面的类型有比较严格的限制，常常要求更加小心地定义接触通过指定自接触，默认地定义典型的通用接触相互作用，应用ABAQUS/Exp">
 <meta name="keywords" content="有限元理论">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ABAQUS学习笔记3——显式非线性动态分析">
-<meta property="og:url" content="http://dorothydingzx.github.io/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/index.html">
+<meta property="og:title" content="ABAQUS学习笔记6-接触">
+<meta property="og:url" content="http://dorothydingzx.github.io/2018/01/20/ABAQUS学习笔记6-接触/index.html">
 <meta property="og:site_name" content="Hello, life">
-<meta property="og:description" content="1 动态振荡的阻尼在模型中加入阻尼的两个原因：限制数值振荡、为系统增加物理的阻尼，ABAQUS/Explicit提供的在分析中加入阻尼的方法：体粘性、粘性压力、材料阻尼、离散减振器。 1.1 体粘性体粘性引入了与体积应变相关的阻尼，目的是改进对高速动力学事件的模拟。ABAQUS/Explicit包括体粘性的线性和二次的形式，体粘性参数一般很少修改默认值，仅作为一个数值影响，在材料点的应力中不包括体">
+<meta property="og:description" content="6 在ABAQUS/Explicit中定义接触两种模拟接触相互作用的算法：通用接触（general contact）算法：允许非常简单地定义接触，对于接触表面类型限制很少接触对（contact pair）算法：允许模拟一些采用通用接触算法不能够模拟的相互作用行为，对于接触表面的类型有比较严格的限制，常常要求更加小心地定义接触通过指定自接触，默认地定义典型的通用接触相互作用，应用ABAQUS/Exp">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T04:15:24.603Z">
+<meta property="og:updated_time" content="2018-01-20T09:15:59.718Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ABAQUS学习笔记3——显式非线性动态分析">
-<meta name="twitter:description" content="1 动态振荡的阻尼在模型中加入阻尼的两个原因：限制数值振荡、为系统增加物理的阻尼，ABAQUS/Explicit提供的在分析中加入阻尼的方法：体粘性、粘性压力、材料阻尼、离散减振器。 1.1 体粘性体粘性引入了与体积应变相关的阻尼，目的是改进对高速动力学事件的模拟。ABAQUS/Explicit包括体粘性的线性和二次的形式，体粘性参数一般很少修改默认值，仅作为一个数值影响，在材料点的应力中不包括体">
+<meta name="twitter:title" content="ABAQUS学习笔记6-接触">
+<meta name="twitter:description" content="6 在ABAQUS/Explicit中定义接触两种模拟接触相互作用的算法：通用接触（general contact）算法：允许非常简单地定义接触，对于接触表面类型限制很少接触对（contact pair）算法：允许模拟一些采用通用接触算法不能够模拟的相互作用行为，对于接触表面的类型有比较严格的限制，常常要求更加小心地定义接触通过指定自接触，默认地定义典型的通用接触相互作用，应用ABAQUS/Exp">
 
 
 
@@ -140,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://dorothydingzx.github.io/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/"/>
+  <link rel="canonical" href="http://dorothydingzx.github.io/2018/01/20/ABAQUS学习笔记6-接触/"/>
 
 
 
 
 
-  <title>ABAQUS学习笔记3——显式非线性动态分析 | Hello, life</title>
+  <title>ABAQUS学习笔记6-接触 | Hello, life</title>
   
 
 
@@ -323,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/">
+    <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/20/ABAQUS学习笔记6-接触/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Dorothy">
@@ -340,7 +340,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ABAQUS学习笔记3——显式非线性动态分析</h1>
+          <h1 class="post-title" itemprop="name headline">ABAQUS学习笔记6-接触</h1>
         
 
         <div class="post-meta">
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-09T12:03:36+08:00">
-                2018-01-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T13:32:14+08:00">
+                2018-01-20
               </time>
             
 
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/" class="leancloud_visitors" data-flag-title="ABAQUS学习笔记3——显式非线性动态分析">
+             <span id="/2018/01/20/ABAQUS学习笔记6-接触/" class="leancloud_visitors" data-flag-title="ABAQUS学习笔记6-接触">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -423,126 +423,51 @@
       
 
       
-        <h2 id="1-动态振荡的阻尼"><a href="#1-动态振荡的阻尼" class="headerlink" title="1 动态振荡的阻尼"></a>1 动态振荡的阻尼</h2><p>在模型中加入阻尼的两个原因：限制数值振荡、为系统增加物理的阻尼，ABAQUS/Explicit提供的在分析中加入阻尼的方法：体粘性、粘性压力、材料阻尼、离散减振器。</p>
-<h3 id="1-1-体粘性"><a href="#1-1-体粘性" class="headerlink" title="1.1 体粘性"></a>1.1 体粘性</h3><p>体粘性引入了与体积应变相关的阻尼，目的是改进对<strong>高速动力学事件</strong>的模拟。ABAQUS/Explicit包括体粘性的线性和二次的形式，体粘性参数一般很少修改默认值，仅作为一个数值影响，在材料点的应力中不包括体粘性压力，所以并不作为材料本构响应的一部分。<br><a id="more"></a><br><strong>（1）线性体粘性</strong><br>默认情况下，总是采用线性体粘性来削弱在单元最高阶频率中的振荡，根据下面的方程，生成一个与体积应变率成线性关系的体粘性压力：<br>$$p_{1}=b_{1}\rho c_{d}L^{e}\dot \varepsilon_{vol}$$ 式中，$b_{1}$是一个阻尼系数，默认值为0.06；$\rho$是当前的材料密度；$c_{d}$是当前的膨胀波速；$L^{e}$是单元的特征长度；$\dot \varepsilon_{vol}$是体积应变速率。<br><strong>（2）二次体粘性</strong><br>仅在实体单元中（除了平面应力单元CPS4R外）包括二次体粘性，并且只有当体积应变速率可压缩时才被用到。体粘性压力是应变速率的二次方：<br>$$p_{2}=\rho(b_{2}L^{e})^{2} |\dot \varepsilon_{vol}|min(0,\dot \varepsilon_{vol})$$ 式中，$b_{2}$是一个阻尼系数，默认值为1.2。<br>二次体粘性摸平了一个仅横跨几个单元的振荡波前，引入它是为了防止单元在极端高速梯度下发生破坏。如果在一个单元中，稳定时间增量尺度精确地等于一个膨胀波穿过单元的瞬时时间，如果节点的初速度等于材料的膨胀波速，那么在这个时间增量里，这个单元将发生崩溃至体积为零。二次体粘性压力引入一个阻抗压力以防止单元压溃。<br><strong>（3）基于体粘性的临界阻尼比</strong><br>体粘性压力只是基于每个单元的膨胀模式，在最高阶单元模式中的临界阻尼比：<br>$$\xi=b_{1}-b^{2}_{2}\frac{L^{e}}{c_{d}}min(0,\dot \varepsilon_{vol})$$ 式中，$\xi$是临界阻尼比，线性项单独代表了6%的临界阻尼，而二次项一般是更小的量。</p>
-<h3 id="1-2-粘性压力"><a href="#1-2-粘性压力" class="headerlink" title="1.2 粘性压力"></a>1.2 粘性压力</h3><p>粘性压力载荷一般应用在<strong>结构问题</strong>或者<strong>准静态问题</strong>，以阻止<strong>低阶频率</strong>的动态影响，从而以最少数目的增量步达到静态平衡。这些载荷以如下公式定义的分布载荷形式增加：<br>$$p=-c_{v}(\overline{v} \cdot \overline{n})$$ 式中，$p$是施加到物体上的压力；$c_{v}$为粘度，在数据行中作为载荷的量值给出；$\overline{v}$是在施加粘性压力面上的点的速度矢量；$\overline{v}$是该点处表面上的单位外法线矢量。对于典型的结构问题，不能指望它吸收掉所有的能量。在典型情况下，使当前动力影响最小化的有效方法是将$c_{v}$设置为$\rho c_{d}$的一个很小的百分数（可能是1%或者2%）。</p>
-<h3 id="1-3-材料阻尼"><a href="#1-3-材料阻尼" class="headerlink" title="1.3 材料阻尼"></a>1.3 材料阻尼</h3><p>材料模型本身可能以<strong>塑性耗散</strong>或者<strong>粘弹性</strong>的形式提供阻尼。对于许多应用，这样的阻尼是足够的。另一个选择是使用<strong>Rayleigh阻尼</strong>，与Rayleigh阻尼相关的阻尼系数有两个：质量比例阻尼$\alpha_{R}$和刚度比例阻尼$\beta_{R}$。<br><strong>质量比例阻尼$\alpha_{R}$</strong><br>$\alpha_{R}$因子定义了一个与单元质量矩阵成比例的阻尼贡献，引入的阻尼力源于在模型中节点的绝对速度。可以把结果影响比作模型在做一个穿越粘性液体的运动，这样，在模型中任何点的任何运动都会引起阻尼力。合理的质量比例阻尼不会明显地降低稳定极限。<br><strong>刚度比例阻尼$\beta_{R}$</strong><br>$\beta_{R}$因子定义了一个与弹性材料刚度成比例的阻尼。“阻尼应力”$\sigma _{d}$与引入的总体应变速率$\dot \varepsilon$成比例：<br>$$\widetilde{\sigma} _{d}=\beta_{R} \widetilde{D}^{el} \dot \varepsilon$$ 对于超弹性（hyperelastic）和泡沫（hyperfoam）材料，定义$\widetilde{D}^{el}$为初始弹性刚度。对于其他所有材料，$\widetilde{D}^{el}$是材料的当前弹性刚度。<br>这一阻尼应力添加到形成动平衡方程时，在积分点处由本构响应引起的应力上，但是在应力输出中并不包括它。对于任何非线性分析，都可以引入阻尼；对于线性分析，提供了标准的Rayleigh阻尼。对于线性分析，刚度比例阻尼与定义一个阻尼矩阵是完全相同的，等于$\beta_{R} \times 刚度矩阵$。必须慎重使用刚度比例阻尼，因为可能使稳定极限明显降低。为避免大幅度降低稳定时间增量，刚度比例阻尼因子$\alpha_{R}$应该小于或者相同于未考虑阻尼时的初始时间增量的量级。</p>
-<h3 id="1-4-离散减振器"><a href="#1-4-离散减振器" class="headerlink" title="1.4 离散减振器"></a>1.4 离散减振器</h3><p>定义单独的减振器单元，每个减振器单元提供了一个与它的两个节点之间的相对速度成正比的阻尼力。优点：能够把阻尼力只施加在自认为有必要施加的节点上。减振器应当总是与其他单元并行使用，例如弹簧或者桁架，因此，不会引起稳定极限的明显下降。</p>
-<h2 id="2-能量平衡"><a href="#2-能量平衡" class="headerlink" title="2 能量平衡"></a>2 能量平衡</h2><p>能量输出经常是ABAQUS\Explicit分析的一个重要部分，可以应用在各种能领分量之间的比较，来帮助评估一个分析是否得到了合理的响应。</p>
-<h3 id="2-1-能量平衡的表述"><a href="#2-1-能量平衡的表述" class="headerlink" title="2.1 能量平衡的表述"></a>2.1 能量平衡的表述</h3><p>整体模型的能量平衡：<br>$$E_{1}+E_{V}+E_{FD}+E_{KE}-E_{W}=E_{total}=constant$$ 式中，$E_{1}$为内能；$E_{V}$为粘性耗散能；$E_{FD}$为摩擦耗散能；$E_{KE}$为动能；$E_{W}$为外加载荷所做的功。这些能量分量的总和为$E_{total}$，它必须是个常数。在数值模型中，$E_{total}$只是近似的常数，一般有小于1%的误差。<br><strong>内能$E_{1}$</strong><br>内能$E_{1}$是能量的总和，包括可恢复的弹性应变能$E_{E}$、非弹性过程的能量耗散（例如塑性）$E_{P}$、粘弹性或者蠕变过程的能量耗散$E_{CD}$和伪应变能$E_{A}$：<br>$$E_{1}=E_{E}+E_{P}+E_{CD}+E_{A}$$ 伪应变能包括储存在沙漏阻力以及在壳和梁单元的横向剪切中的能量。出现大量的伪应变能则表明，必须对网格进行细划或对网格进行其他修改。<br><strong>粘性能$E_{V}$</strong><br>粘性能$E_{V}$是由<strong>阻尼机制</strong>引起的能量耗散，包括体粘性阻尼和材料阻尼。作为一个在整体能量平衡中的基本变量，粘性能不是指在粘弹性或非弹性过程中耗散的那部分能量。<br><strong>施加力的外力功$E_{W}$</strong><br>外力功$E_{W}$是向前连续地积分，完全由节点力（力矩）和位移（转角）定义的功，指定的边界条件也对外力功有贡献。</p>
-<h3 id="2-2-能量平衡的输出"><a href="#2-2-能量平衡的输出" class="headerlink" title="2.2 能量平衡的输出"></a>2.2 能量平衡的输出</h3><p>对于整体模型、特殊的单元集合、单独的单元或者在每个单元中的能量密度，都可以要求输出每一种能量值并绘出能量的时间历史。<br><strong>整个模型能量输出</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">变量名</th>
-<th style="text-align:left">能量值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ALLIE</td>
-<td style="text-align:left">内能，$E_{1}$：ALLIE=ALLSE+ALLPD+ALLCD+ALLAE</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLKE</td>
-<td style="text-align:left">动能，$E_{EK}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLVD</td>
-<td style="text-align:left">粘性耗散能，$E_{V}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLFD</td>
-<td style="text-align:left">摩擦耗散能，$E_{FD}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLCD</td>
-<td style="text-align:left">粘弹性耗散能，$E_{CD}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLWK</td>
-<td style="text-align:left">外力的功，$E_{W}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLSE</td>
-<td style="text-align:left">存储的应变能，$E_{E}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLPD</td>
-<td style="text-align:left">非弹性耗散能，$E_{P}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLAE</td>
-<td style="text-align:left">伪应变能，$E_{A}$</td>
-</tr>
-<tr>
-<td style="text-align:left">ALLIE</td>
-<td style="text-align:left">能量平衡：$E_{TOT}=E_{1}+E_{V}+E_{FD}+E_{KE}-E_{W}$</td>
-</tr>
-</tbody>
-</table>
-<p>ABAQUS\Explicit能够提供单元水平的能量输出和能量密度输出。<br><strong>整个单元能量输出变量</strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">变量名</th>
-<th style="text-align:left">整个单元能量值</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">ELSE</td>
-<td style="text-align:left">弹性应变能</td>
-</tr>
-<tr>
-<td style="text-align:left">ELPD</td>
-<td style="text-align:left">塑性耗散能</td>
-</tr>
-<tr>
-<td style="text-align:left">ELCD</td>
-<td style="text-align:left">蠕变耗散能</td>
-</tr>
-<tr>
-<td style="text-align:left">ELVD</td>
-<td style="text-align:left">粘性耗散能</td>
-</tr>
-<tr>
-<td style="text-align:left">ELASE</td>
-<td style="text-align:left">伪能量=孔洞（drill）+沙漏能</td>
-</tr>
-<tr>
-<td style="text-align:left">EKEDEN</td>
-<td style="text-align:left">单元的动能密度</td>
-</tr>
-<tr>
-<td style="text-align:left">ESEDEN</td>
-<td style="text-align:left">单元的弹性应变能密度</td>
-</tr>
-<tr>
-<td style="text-align:left">EPDDEN</td>
-<td style="text-align:left">单元的塑性耗散能密度</td>
-</tr>
-<tr>
-<td style="text-align:left">EASEDEN</td>
-<td style="text-align:left">单元的伪应变能密度</td>
-</tr>
-<tr>
-<td style="text-align:left">ECDDEN</td>
-<td style="text-align:left">单元的蠕变应变能密度耗散</td>
-</tr>
-<tr>
-<td style="text-align:left">EVDDEN</td>
-<td style="text-align:left">单元的粘性能密度耗散</td>
-</tr>
-</tbody>
-</table>
-<h2 id="3-弹簧和减振器的潜在不稳定性"><a href="#3-弹簧和减振器的潜在不稳定性" class="headerlink" title="3 弹簧和减振器的潜在不稳定性"></a>3 弹簧和减振器的潜在不稳定性</h2><p>某些单元类型在ABAQUS\Explict计算时的稳定性并未予以考虑。<br>具有使分析不稳定的潜在因素的单元：<strong>弹簧单元</strong>、<strong>减振器单元</strong>；<br>不会引起过程不稳定，只会有助于加强分析过程的稳定性的单元：<strong>质量单元</strong>、<strong>转动惯量单元</strong>、<strong>静水压力流体单元</strong>、<strong>作为刚体一部分的单元</strong>。<br>一个可能转化为非稳定的分析，为了避免非稳定的发生，可以加入一个<strong>接触约束</strong>的限制。<strong>弹簧</strong>如同实体单元等其他单元一样，在分析中会引入一个稳定性要求。每个单元都有基于本单元刚度和质量的最大稳定时间增量，但因为一个弹簧单元本身只有刚度而没有质量，所以它的稳定性中用到的质量和与其连接的其他具有质量的单元的质量有关。由于质量的不确定性，ABAQUS\Explicit不可能计算弹簧单元的稳定时间增量。如果弹簧要求的稳定时间增量比模型其他单元的最小稳定时间增量还小，则弹簧确定了模型的控制稳定时间增量，于是分析可能变得不稳定。</p>
-<h3 id="3-1-确定稳定时间增量"><a href="#3-1-确定稳定时间增量" class="headerlink" title="3.1 确定稳定时间增量"></a>3.1 确定稳定时间增量</h3><p>像对待其他单元一样，可以计算弹簧-质量系统的稳定时间增量，但由于ABAQUS/Explicit在计算稳定时间增量时并不考虑弹簧-质量系统，一旦桁架的稳定时间增量超过了弹簧-质量系统的稳定时间增量，弹簧-质量系统就不再稳定。</p>
-<h3 id="3-2-识别非稳定性"><a href="#3-2-识别非稳定性" class="headerlink" title="3.2 识别非稳定性"></a>3.2 识别非稳定性</h3><p>模型在用ABAQUS/Explicit运行时会产生一个<strong>状态文件（.sta）</strong>，其中包含了弹簧自由端的位移历史和模型的能量历史信息，可以从这些信息中判断不稳定性的来源。<br><strong>状态文件</strong>：质量单元的位移保持负值，并出现了第一个关于分析稳定性的警告信息，警告信息提示SPRINGA单元产生了过大的转动、这个转动并不是指转动自由度（弹簧不具有此自由度），而是指弹簧发生了刚性转动，因此此时质量单元一直在负方向上移动（相当于弹簧已被翻转）。<br><strong>位移历史</strong>：位移历史图上符号之间的距离增加，表明ABAQUS\Explicit使用的时间增量在分析中是增加的。从不切实际的位移，很清楚地看出弹簧-质量系统已经变为不稳定。<br><strong>用能量来确定非稳定性</strong>：状态文件中的动能表示的是整个模型的动能总和。动能不切实际的增长可能指示着分析已经变得不稳定，但没有指出产生问题的区域。最一般的观察能量的方法是在ABAQUS\CAE中建立能量的历史图，能量平衡（ETOTAL）保持常数零，表明解答是稳定的；一个明显的、非恒定的能量平衡则明确指示出解答不再稳定。</p>
-<h3 id="3-3-消除不稳定性"><a href="#3-3-消除不稳定性" class="headerlink" title="3.3 消除不稳定性"></a>3.3 消除不稳定性</h3><p><strong>（1）增加质量</strong><br>消除弹簧引起的不稳定性的较好方法：增加与弹簧相连的质量。弹簧一般用以模拟刚度，而不是模拟更复杂的连续体反应，弹簧能够精确地模拟刚度，但不占用质量。随着与弹簧相连的质量的增加，弹簧-质量系统的自然频率下降，稳定时间增量增加。如果在与弹簧连接的节点上附加足够的质量，弹簧-质量系统的稳定时间增量将可以保证总大于模型中其他部分的稳定时间增量，弹簧将对结构行为具有理想的影响而又不控制分析的稳定性。<br><strong>（2）考虑阻尼的影响</strong><br>减振器单元常常与弹簧单元联合运用，为模型中离散的点提供组你爱。减振器单元影响分析的稳定时间增量，但ABAQUS/Explicit在计算稳定时间增量时并不考虑减振器。实际上，与弹簧并列使用的减振器总是降低弹簧的实际稳定时间增量。另一方面，ABAQUS/Explicit考虑材料阻尼对稳定时间增量的影响。<br>无材料阻尼时：<br>$$\Delta t_{stable}=\frac{2}{\omega}$$ 有材料阻尼时：<br>$$\Delta t_{stable}=\frac{2}{\omega}[(\sqrt{1+\xi ^{2}})-\xi]$$ 式中，$\xi$是施加阻尼与临界阻尼之比。有材料阻尼时的稳定时间增量总比无材料阻尼时的小。一般来说，因为不知道临界阻尼值，$\xi$是不可能计算出来的，因此很难事先知道$\Delta t$为何值时分析会变得不稳定。<br><strong>（3）控制时间增量</strong><br>如果在弹簧节点上附加质量不符合物理实际，可以通过控制时间增量来保持稳定，固定时间增量（fixed time incrementation）能够使ABAQUS/Explicit一直使用分析过程初始时计算得到的稳定时间增量。为了包括其他的安全系数，还可以设置一个时间增量的比例系数。</p>
-<h2 id="4-小结"><a href="#4-小结" class="headerlink" title="4 小结"></a>4 小结</h2><ul>
-<li>一般地，ABAQUS/Explicit应用质量比例阻尼来减弱低阶频率振荡，并应用刚度比例阻尼来减弱高阶频率振荡；</li>
-<li>在一些情况下，ABAQUS/Explicit分析可能会成为不稳定的。</li>
+        <h2 id="6-在ABAQUS-Explicit中定义接触"><a href="#6-在ABAQUS-Explicit中定义接触" class="headerlink" title="6 在ABAQUS/Explicit中定义接触"></a>6 在ABAQUS/Explicit中定义接触</h2><p>两种模拟接触相互作用的算法：<br><strong>通用接触（general contact）算法</strong>：允许非常简单地定义接触，对于接触表面类型限制很少<br><strong>接触对（contact pair）算法</strong>：允许模拟一些采用通用接触算法不能够模拟的相互作用行为，对于接触表面的类型有比较严格的限制，常常要求更加小心地定义接触<br>通过指定自接触，默认地定义典型的通用接触相互作用，应用ABAQUS/Explicit自动地定义一个基于单元的表面（element-based surface），它包括了在模型中的所有物体。为了细划接触区域，可以包含或者不包含指定的表面对。通过指定每一个单独的能够发生相互作用的表面对，定义接触相互作用。<br><a id="more"></a></p>
+<h3 id="6-1-ABAQUS-Explicit接触的数学描述"><a href="#6-1-ABAQUS-Explicit接触的数学描述" class="headerlink" title="6.1 ABAQUS/Explicit接触的数学描述"></a>6.1 ABAQUS/Explicit接触的数学描述</h3><p>在ABAQUS/Explicit中接触的数学描述包括约束增强方法、接触表面权重、跟踪搜索和滑移公式。</p>
+<h4 id="6-1-1-约束增强方法（constraint-enforcement-method）"><a href="#6-1-1-约束增强方法（constraint-enforcement-method）" class="headerlink" title="6.1.1 约束增强方法（constraint enforcement method）"></a>6.1.1 约束增强方法（constraint enforcement method）</h4><p><strong>罚函数接触方法</strong>：对于一般的接触，ABAQUS/Explicit应用罚函数接触方法强化接触约束，在当前构型中寻找“节点进入表面”和“边进入边”的侵彻。ABAQUS/Explicit自动选择罚函数刚度，建立接触力和侵彻距离之间的关系，使其对时间增量步的影响达到最小化，并且侵彻是不明显的。通常的接触约束也可以应用罚函数接触方法。它可以模拟某些动力学方法不能够模拟的接触。<br><strong>动力学接触公式</strong>：对于表面与表面之间的接触，ABAQUS/Explicit默认使用动力学接触公式，应用预测/修正的方法获得接触条件下的精确柔度。在增量步开始时假设没有发生接触，如果在增量步结束时产生了过盈，则修改加速度的值以获得正确的增强了接触约束的构形。</p>
+<h4 id="6-1-2-接触表面权重（contact-surface-weighting）"><a href="#6-1-2-接触表面权重（contact-surface-weighting）" class="headerlink" title="6.1.2 接触表面权重（contact surface weighting）"></a>6.1.2 接触表面权重（contact surface weighting）</h4><p><strong>单纯主-从接触算法</strong>：其中一个表面为主控表面，另一个表面为从属表面。当两个物体发生接触时，根据约束增强方法（动力学或罚函数）检测是否发生侵彻并施加接触约束。单纯的主-从权重（不考虑约束增强方法）仅阻止从属节点对主控表面的侵彻，并不检测主控节点可能对从属表面进行的侵彻，除非在从属表面采用了足够精细的网格，以避免来自主控节点的侵彻。<br><strong>平衡主-从接触算法</strong>：应用了两次单纯主-从接触算法，在第2次搜索过程中将主从表面对调，由两次计算的加权平均获得了加速度的修正值或接触力，所做的第2次修正是为了求解任何残余的侵彻，使接触物之间的侵彻达到最小化。<br><strong>通用接触算法</strong>尽可能采用平衡主-从权重算法，对于包含基于节点表面的通用接触算法，该表面仅可能作为单纯的从属表面，可以应用单纯主-从权重。对于<strong>接触对算法</strong>，根据所涉及的两个表面的性质和采用的约束增强方法，对于给定的接触对，ABAQUS/Explicit将决定采用哪一种权重。</p>
+<h4 id="6-1-3-跟踪搜索（tracking-approach）"><a href="#6-1-3-跟踪搜索（tracking-approach）" class="headerlink" title="6.1.3 跟踪搜索（tracking approach）"></a>6.1.3 跟踪搜索（tracking approach）</h4><p>因为在接触表面上的一个节点有可能与相对接触面上的任何一个单元面发生接触，所以ABAQUS/Explicit使用了成熟的<strong>搜索算法</strong>来跟踪接触表面的运动。<br>在<strong>通用接触算法</strong>中，使用额相对更精确的整体/句搜索算法，不需要用户进行控制。<br>对于<strong>接触对相互作用</strong>，在每一个分析步的开始，将进行一次彻底的、整体（global）的搜索，对于每一个在接触对中的从属节点，要确定与其距离最近的主控表面面元。由于每一次整体搜索的代价都十分昂贵，所以在大多数增量步中采用代价较小的局部（local）搜索。由于时间增量步很短，所以对于大多数情况，从一个增量步到下一个增量步，接触中物体移动的量很小，对于跟踪接触表面的运动，局部接触搜索是合适的。然而，有一些情况可能引起局部搜索失效，其中一种情况是在主控表面上包含一个<strong>孔洞</strong>。在局部接触搜索中，在从属节点与主控面元之间的越过孔洞的潜在接触将不会被识别。另一种情况是允许<strong>单一表面与其自身接触</strong>。</p>
+<h4 id="6-1-4-滑移公式（sliding-formulation）"><a href="#6-1-4-滑移公式（sliding-formulation）" class="headerlink" title="6.1.4 滑移公式（sliding formulation）"></a>6.1.4 滑移公式（sliding formulation）</h4><p>有限滑移公式：默认，对于一般接触相互作用是唯一选项，更为普遍适用。<br>小滑移公式：如果两个表面之间的相对运动小于一个单元面的一个很小比例的特征尺度，则小滑移公式是适用的。当将结果应用于一个更有效率的分析时，应用小滑移公式。</p>
+<h2 id="7-ABAQUS-Explicit建模中虚考虑的问题"><a href="#7-ABAQUS-Explicit建模中虚考虑的问题" class="headerlink" title="7 ABAQUS/Explicit建模中虚考虑的问题"></a>7 ABAQUS/Explicit建模中虚考虑的问题</h2><p>ABAQUS/Explicit建模中需要考虑：表面的正确定义、过约束、网格细划和初始过盈。</p>
+<h3 id="7-1-表面的正确定义"><a href="#7-1-表面的正确定义" class="headerlink" title="7.1 表面的正确定义"></a>7.1 表面的正确定义</h3><p>对于在接触中可以包含的表面的类型，通用的接触算法没有什么限制，但二维的、基于节点的、解析刚性表面只能用于接触对算法。</p>
+<h4 id="7-1-1-连续表面"><a href="#7-1-1-连续表面" class="headerlink" title="7.1.1 连续表面"></a>7.1.1 连续表面</h4><p>使用通用接触算法的表面可以跨越多个互不相连的物体，两个以上的表面面元可以享用一条边界。在接触对算法中，应用的所有表面必须是<strong>连续的</strong>和<strong>简单连接的</strong>，连续性要求具有下面的含义，即是否设置了适用于接触对算法的有效或者无效的表面定义。</p>
+<ul>
+<li>在二维尺度内，表面必须是一条简单的、无内部交叉点并带有两个端点的曲线，或者是一条闭合环。</li>
+<li>在三维尺度内，属于有效表面的一个单元面的边界可以在这个表面的周界上，或者与另一个面共享。两个单元面组成一个接触表面不能再一个共享的节点处连接，必须跨过一条公共的单元边界连接。一条单元边界不能与两个以上的表面面元共享。</li>
+<li>定义三维、双侧表面，在同一个表面定义中包含壳、膜或刚体单元的两个侧面。</li>
+</ul>
+<h4 id="7-1-2-延伸表面"><a href="#7-1-2-延伸表面" class="headerlink" title="7.1.2 延伸表面"></a>7.1.2 延伸表面</h4><p>ABAQUS/Explicit不会自动将用户定义的表面延伸出其周界。如果来自一个表面上的节点与另一个表面发生接触，并且它沿着该表面移动直至到达边界，那么它可能“落出边界”，可能不久又从该表面的背面重新进入，因为违反了动力学约束，并引起该节点加速度的急剧变化。因此，可以将表面延伸至稍微超出实际发生接触的区域，一般建议<strong>用表面完全覆盖每一个接触物体</strong>，这样附加的计算耗费是最小的。</p>
+<h4 id="7-1-3-网格缝隙"><a href="#7-1-3-网格缝隙" class="headerlink" title="7.1.3 网格缝隙"></a>7.1.3 网格缝隙</h4><p>两个节点具有相同的坐标（双节点），可以在一个有效的显示是连续的表面生成一道缝隙或裂纹。节点沿着表面滑动，可能会通过这一裂纹并滑入接触表面的背面。一旦检测出这种侵彻，可能会引起较大的、无物理意义的加速度修正值。在Visualization模块中可以通过<strong>绘制模型的自由边界</strong>检测到网格缝隙，不再预料内的边界就可能是双节点区域。</p>
+<h4 id="7-1-4-完整的表面定义"><a href="#7-1-4-完整的表面定义" class="headerlink" title="7.1.4 完整的表面定义"></a>7.1.4 完整的表面定义</h4><p>表面需要能代表物体几何形状的完整描述，不能出现一个表面上的节点出现在另外一个表面的背面。</p>
+<h4 id="7-1-5-高度卷曲的表面"><a href="#7-1-5-高度卷曲的表面" class="headerlink" title="7.1.5 高度卷曲的表面"></a>7.1.5 高度卷曲的表面</h4><p>在通用接触算法中，对卷曲的表面不需要进行专门处理。但在<strong>接触对算法</strong>中，当采用的表面含有高度卷曲的面元时，必须应用的跟踪算法比采用表面不包含高度卷曲的面元所要求的算法更加昂贵。为尽可能地保持求解效率，ABAQUS会监视表面的卷曲，并当表面成为高度卷曲时发出警告。如果相邻面元的法线方向相差<strong>20°</strong>以上，ABAQUS会发出警告信息。一旦一个表面被认定是高度卷曲的，ABAQUS将会用一个更为精确的搜索方法代替原来较为高效的接触搜索方法，以克服由高度卷曲表面所带来的问题。<br>对于<strong>刚性表面</strong>的高度卷曲检查，只是在分析步开始时进行，因为刚性表面在分析中不会改变形状。对于<strong>变形表面</strong>的高度卷曲检查，默认地每20个增量步检查1次。卷曲检测的频率、已经定义的高度卷曲的角度值都可以重新定义。</p>
+<h4 id="7-1-6-刚性单元离散"><a href="#7-1-6-刚性单元离散" class="headerlink" title="7.1.6 刚性单元离散"></a>7.1.6 刚性单元离散</h4><p>应用刚体单元可以定义<strong>几何形状复杂的刚性表面</strong>，在ABAQUS/Explicit中的刚体单元不进行光滑处理，精确地保持用户定义的表面形状。<br>不光滑表面的优点：ABAQUS所应用的表面和用户定义的表面完全一致；缺点：必须使用更加高精度细划的网格构成表面，才能精确地定义光滑的物体。<br>一般地，使用大量的刚体单元来定义刚性表面，不会显著地增加CPU成本，但大量的刚体单元确实明显地增加了过多的内存。<br>用户必须保证在刚性物体上任何曲线的几何离散是合适的，如果刚体离散得过于粗糙，在变形物体上的接触节点可能会“<strong>触礁</strong>”，从而导致错误的结果。在一段时间内，撞到尖角上的节点被阻止了沿着刚性表面的进一步滑行。一旦释放了足够多的能量使它能够滑移并越过尖角，那么在接触到临界的面之前，该节点将动态地滑动，如此的运动会引起解答的<strong>振荡（noisy）</strong>。刚性表面划分地越细致，接触从属节点的运动就越平滑。<br>在通用接触算法中包含某些数值误差舍入特性，以避免出现成对离散刚性表面所关切的节点触礁问题。采用<strong>罚函数增强</strong>的接触约束会减少触礁发生的可能性。</p>
+<h3 id="7-2-过约束（overconstraint）"><a href="#7-2-过约束（overconstraint）" class="headerlink" title="7.2 过约束（overconstraint）"></a>7.2 过约束（overconstraint）</h3><p>通常决不能在同一个节点上定义<strong>多节点约束和应用动力学方法增强接触条件</strong>，因为这样可能会产生矛盾的动力学约束。除非这些约束是完全地相互正交，否则模型将会过约束。当ABAQUS/Explicit试图满足这些矛盾的约束时，运算结果将会是相当混乱的。<strong>罚函数接触约束和多点约束</strong>作用在同一个节点上不会产生矛盾，因为罚函数约束不像多点约束那样严格。</p>
+<h3 id="7-3-网格细划"><a href="#7-3-网格细划" class="headerlink" title="7.3 网格细划"></a>7.3 网格细划</h3><p>对于应用<strong>单纯主从算法</strong>的接触分析，从属表面的网格适当细化特别重要，这样主控表面上的面元才不可能过度地侵入从属表面。为了具有适当的接触柔度，<strong>平衡主从算法</strong>在从属表面上并不需要高度的网格细划。<br><strong>束缚（tie）约束</strong>防止了在初始时相互接触的表面发生侵彻、分离或相对运动，因此束缚约束是一种简单意义的网格细划。由于在两个表面之间存在的<strong>任何缝隙</strong>，无论多小都会导致节点不能与对面的边界发生束缚，所以在分析开始时，必须调整节点以保证两个表面准确地接触在一起。束缚约束的公式约束了平移自由度和可选择的转动自由度，当应用束缚接触于结构单元时，必须保证任何没有约束的转动不会带来问题。</p>
+<h3 id="7-4-初始过盈接触"><a href="#7-4-初始过盈接触" class="headerlink" title="7.4 初始过盈接触"></a>7.4 初始过盈接触</h3><p>为了消除任何初始的过盈，ABAQUS/Explicit将<strong>自动调整在接触表面上未变形的节点坐标</strong>。当应用平衡主从算法时，两个表面均被调整；当应用单纯主从算法时，仅调整从属表面。为了消除过盈接触，与调整表面相关的位移不会对在分析的第1个分析步中定义的接触引起任何的初始应变或应力。<br>当存在<strong>矛盾的约束</strong>时，重新定位节点可能不会完全地解决初始过盈。这种情况下，当采用接触对算法时，在分析刚开始阶段可能会导致网格的严重扭曲。通用接触算法存储了任何无法消除的初始侵彻，将其作为偏置量以避免过大的初始加速度。<br>在随后的分析步中，为了消除初始过盈而进行的任何节点调整都将引起应变，并常常引起网格的严重扭曲，因为整体的节点调整发生在一个单一、非常短暂的增量步内。当采用<strong>动力学接触方法</strong>时，这个问题更为明显，即便是一个非常小的过盈量，都可能引起极大的加速度。通常，在分析步2以及后续的分析步中，所定义的任何新的接触表面都不能有过盈，这一点非常重要。</p>
+<h2 id="8-ABAQUS-Standard和ABAQUS-Explicit的比较"><a href="#8-ABAQUS-Standard和ABAQUS-Explicit的比较" class="headerlink" title="8 ABAQUS/Standard和ABAQUS/Explicit的比较"></a>8 ABAQUS/Standard和ABAQUS/Explicit的比较</h2><p>在ABAQUS/Standard和ABAQUS/Explicit中的力学接触算法具有本质区别，体现在如何定义接触条件，主要区别如下：</p>
+<ul>
+<li>ABAQUS/Standard在施加接触约束时应用<strong>严格的主从权重</strong>，约束从属表面的节点不能侵入主控表面，而主控表面上的节点原则上可以侵入从属表面。ABAQUS/Explicit包括这个公式，但是典型地它默认应用<strong>平衡主从权重</strong>。</li>
+<li>ABAQUS/Standard和ABAQUS/Explicit都提供了<strong>有限滑动接触公式</strong>，但是，在ABAQUS/Standard中的二维有限滑动公式要求主控表面是光滑的，而在ABAQUS/Explicit的主控表面是由面元构成的，除非是光滑的解析刚性表面。</li>
+<li>ABAQUS/Standard和ABAQUS/Explicit都提供了<strong>小滑移接触公式</strong>，但是在ABAQUS/Standard中的小滑移公式根据从属节点的当前位置向主控节点传递载荷，ABAQUS/Explicit总是通过固定点（anchor point）传递载荷。</li>
+<li>ABAQUS/Explicit在接触逻辑中可以考虑壳和膜的当前厚度和中面偏移，而ABAQUS/Standard不能够做到。</li>
+<li>ABAQUS/Explicit<strong>通用接触算法</strong>的许多优势在ABAQUS/Standard中是不具备的。</li>
+</ul>
+<p>由于以上差异，所以在一个ABAQUS/Standard分析中定义的接触不能导入一个ABAQUS/Explicit分析中，反之亦然。</p>
+<h2 id="9-小结"><a href="#9-小结" class="headerlink" title="9 小结"></a>9 小结</h2><ul>
+<li>接触分析需要一个谨慎的、逻辑的方法。如果必要，将分析过程分解成几个步骤，并缓慢地施加载荷以保证建立良好的接触条件。</li>
+<li>一般地，在ABAQUS/Standard中，对每一部分的分析最好采用不同的分析步，即便仅仅是将边界条件改为加载总是会发现最后所使用的分析步数目要比预期的多，但是模型应该是收敛得更容易。如果在一个分析步中试图施加上所有的载荷，那么接触分析是难以完成的。</li>
+<li>在对结构施加工作载荷之前，在ABAQUS/Standard中的所有部件之间取得稳定的接触条件。如果有必要，可施加临时的边界条件，在后面的阶段中可以将它们消除，这些临时提供的约束不会产生永久变形，不会影响最终结果。</li>
+<li>在ABAQUS/Standard中，不要对接触面上的节点施加边界条件，在接触的方向上约束节点，如果有摩擦，在任何自由度方向上不要约束这些节点，可能出现<strong>零主元</strong>信息。</li>
+<li>在ABAQUS/Standard中的接触模拟，总是要尽量采用<strong>一阶单元</strong>。</li>
+<li>ABAQUS/Explicit提供了两种不同的模拟接触算法：通用接触和接触对。</li>
+<li>通用接触相互作用允许对模型的许多部分或者所有的区域定义接触；接触对相互作用描述在两个表面之间的接触或在一个单一表面和它自身之间的接触。</li>
+<li>应用在ABAQUS/Explicit通用接触算法中的表面可以跨越多个互不相连的物体，两个以上表面的面元可以分享同一条边界。与此相反，应用在接触对算法中的所有表面必须是连续的并简单地连接。</li>
+<li>在ABAQUS/Explicit中，在壳、膜或者刚体单元上的<strong>单侧表面</strong>必须定义，这样当表面横越时法线方向不发生翻转。</li>
+<li>ABAQUS/Explicit<strong>不能平滑刚性表面</strong>。它们是由面元构成，就像单元的面层。在采用接触对算法时，离散刚性表面的粗糙网格可以产生振荡的结果。通用接触算法包括了一些数值舍入功能。</li>
+<li>在ABAQUS中，<strong>束缚（tie）约束</strong>是一种有实用意义的网格细划。</li>
+<li>在第1个分析步前，为了消除任何<strong>初始过盈</strong>，ABAQUS/Explicit会调整节点坐标不产生应变。如果调整值与单元的尺寸相比过大，单元可能会严重扭曲。</li>
+<li>在后续的分析步中，为了消除初始过盈，在ABAQUS/Explicit中的任何节点调整将会引起应变，可能潜在地引起网格的严重扭曲。</li>
 </ul>
 
       
@@ -565,7 +490,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://dorothydingzx.github.io/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/" title="ABAQUS学习笔记3——显式非线性动态分析">http://dorothydingzx.github.io/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/</a>
+    <a href="http://dorothydingzx.github.io/2018/01/20/ABAQUS学习笔记6-接触/" title="ABAQUS学习笔记6-接触">http://dorothydingzx.github.io/2018/01/20/ABAQUS学习笔记6-接触/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -600,8 +525,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/08/ABAQUS学习笔记2—-显式非线性动态分析/" rel="next" title="ABAQUS学习笔记2——显式非线性动态分析">
-                <i class="fa fa-chevron-left"></i> ABAQUS学习笔记2——显式非线性动态分析
+              <a href="/2018/01/19/ABAQUS学习笔记5-接触/" rel="next" title="ABAQUS学习笔记5——接触">
+                <i class="fa fa-chevron-left"></i> ABAQUS学习笔记5——接触
               </a>
             
           </div>
@@ -609,10 +534,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/01/09/PS修复废片-Camera-RAW/" rel="prev" title="PS修复废片-Camera Raw">
-                PS修复废片-Camera Raw <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -770,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-动态振荡的阻尼"><span class="nav-number">1.</span> <span class="nav-text">1 动态振荡的阻尼</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-体粘性"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 体粘性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-粘性压力"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 粘性压力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-材料阻尼"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 材料阻尼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-4-离散减振器"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 离散减振器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-能量平衡"><span class="nav-number">2.</span> <span class="nav-text">2 能量平衡</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-能量平衡的表述"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 能量平衡的表述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-能量平衡的输出"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 能量平衡的输出</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-弹簧和减振器的潜在不稳定性"><span class="nav-number">3.</span> <span class="nav-text">3 弹簧和减振器的潜在不稳定性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-确定稳定时间增量"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 确定稳定时间增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-识别非稳定性"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 识别非稳定性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3-消除不稳定性"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 消除不稳定性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-小结"><span class="nav-number">4.</span> <span class="nav-text">4 小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-在ABAQUS-Explicit中定义接触"><span class="nav-number">1.</span> <span class="nav-text">6 在ABAQUS/Explicit中定义接触</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#6-1-ABAQUS-Explicit接触的数学描述"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 ABAQUS/Explicit接触的数学描述</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-1-约束增强方法（constraint-enforcement-method）"><span class="nav-number">1.1.1.</span> <span class="nav-text">6.1.1 约束增强方法（constraint enforcement method）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-2-接触表面权重（contact-surface-weighting）"><span class="nav-number">1.1.2.</span> <span class="nav-text">6.1.2 接触表面权重（contact surface weighting）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-3-跟踪搜索（tracking-approach）"><span class="nav-number">1.1.3.</span> <span class="nav-text">6.1.3 跟踪搜索（tracking approach）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-1-4-滑移公式（sliding-formulation）"><span class="nav-number">1.1.4.</span> <span class="nav-text">6.1.4 滑移公式（sliding formulation）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-ABAQUS-Explicit建模中虚考虑的问题"><span class="nav-number">2.</span> <span class="nav-text">7 ABAQUS/Explicit建模中虚考虑的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1-表面的正确定义"><span class="nav-number">2.1.</span> <span class="nav-text">7.1 表面的正确定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-1-连续表面"><span class="nav-number">2.1.1.</span> <span class="nav-text">7.1.1 连续表面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-2-延伸表面"><span class="nav-number">2.1.2.</span> <span class="nav-text">7.1.2 延伸表面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-3-网格缝隙"><span class="nav-number">2.1.3.</span> <span class="nav-text">7.1.3 网格缝隙</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-4-完整的表面定义"><span class="nav-number">2.1.4.</span> <span class="nav-text">7.1.4 完整的表面定义</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-5-高度卷曲的表面"><span class="nav-number">2.1.5.</span> <span class="nav-text">7.1.5 高度卷曲的表面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-1-6-刚性单元离散"><span class="nav-number">2.1.6.</span> <span class="nav-text">7.1.6 刚性单元离散</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2-过约束（overconstraint）"><span class="nav-number">2.2.</span> <span class="nav-text">7.2 过约束（overconstraint）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3-网格细划"><span class="nav-number">2.3.</span> <span class="nav-text">7.3 网格细划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-4-初始过盈接触"><span class="nav-number">2.4.</span> <span class="nav-text">7.4 初始过盈接触</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-ABAQUS-Standard和ABAQUS-Explicit的比较"><span class="nav-number">3.</span> <span class="nav-text">8 ABAQUS/Standard和ABAQUS/Explicit的比较</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-小结"><span class="nav-number">4.</span> <span class="nav-text">9 小结</span></a></li></ol></div>
             
 
           </div>
