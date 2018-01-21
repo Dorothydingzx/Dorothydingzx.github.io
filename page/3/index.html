@@ -323,6 +323,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/07/ABAQUS学习笔记1-非线性/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dorothy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello, life">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/07/ABAQUS学习笔记1-非线性/" itemprop="url">ABAQUS学习笔记1——非线性</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-07T15:07:00+08:00">
+                2018-01-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ABAQUS/" itemprop="url" rel="index">
+                    <span itemprop="name">ABAQUS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/01/07/ABAQUS学习笔记1-非线性/" class="leancloud_visitors" data-flag-title="ABAQUS学习笔记1——非线性">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>结构力学模拟中的非线性主要有：材料非线性、边界非线性、几何非线性。其中，几何非线性发生在位移的大小影响到结构响应的情况下，可能是由于：大挠度或大转动、“突然翻转”（snap through}、初应力或载荷刚性化。</p>
+<h2 id="1-非线性问题的求解"><a href="#1-非线性问题的求解" class="headerlink" title="1 非线性问题的求解"></a>1 非线性问题的求解</h2><p><strong>ABAQUS/Standard</strong>：应用Newton-Raphson算法获得非线性问题的解答。在非线性分析中，不能像在线性问题中一样通过求解单一的系统方程计算求解，而是增量地施加给定的载荷求解，逐步地获得最终解答。因此，ABAQUS/Standard将模拟划分为一定数量的载荷增量步（load increments），并在每个载荷增量步结束时寻求近似的平衡构形。<br><strong>ABAQUS/Explicit</strong>：显式地从上一个增量步前推出动力学状态，无需进行迭代，确定了动平衡方程$P-I = M\ddot{u}$的解答。显式地求解一个问题，不需要计算切线刚度矩阵。显式中心差分算子满足了在增量步开始时刻<em>t</em> 的动力学平衡方程。利用在时刻<em>t</em> 计算的加速度，前推出在时刻$t+\Delta t/2$的速度解答和在时刻$t+\Delta t$的位移解答。对于线性和非线性问题是相似的，显式方法都需要一个小的时间增量步，只依赖于模型的最高阶自振频率，而与载荷的类型和加载时间无关。典型的模拟需要大量的增量步，然而事实上，由于在每个增量步中无需求解全体方程的集合，所以每一个增量步的计算成本，显式方法比隐式方法要小得多，故而ABAQUS/Explicit非常适合于非线性分析。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/07/ABAQUS学习笔记1-非线性/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+
+      <div>
+        
+      </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/06/PS给图片添加蓝天白云/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -845,7 +1008,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

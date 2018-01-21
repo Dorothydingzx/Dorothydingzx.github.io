@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Nxote" />
+  <meta name="keywords" content="有限元理论," />
 
 
 
@@ -100,16 +100,18 @@
 
 
 
-<meta name="description" content="Just Do It">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hello, life">
-<meta property="og:url" content="http://dorothydingzx.github.io/archives/index.html">
+<meta name="description" content="显式求解方法：一种真正的动态求解过程，其最初发展是为了模拟高速冲击问题（惯性发挥了主导性作用）。当求解动力平衡状态时，非平衡力以应力波的形式在相邻单元之间传播。由于最小稳定时间增量一般是非常小的值，所以 大多数问题需要大量的时间增量步。将显示动态过程应用于准静态问题需要的特殊考虑：为了获得较经济的解答，必须采取一些方式来加速问题的模拟，因为根据定义，一个静态求解是一个长时间的求解过程，在其固有的时">
+<meta name="keywords" content="有限元理论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ABAQUS学习笔记7——ABAQUS&#x2F;Explicit准静态分析">
+<meta property="og:url" content="http://dorothydingzx.github.io/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/index.html">
 <meta property="og:site_name" content="Hello, life">
-<meta property="og:description" content="Just Do It">
+<meta property="og:description" content="显式求解方法：一种真正的动态求解过程，其最初发展是为了模拟高速冲击问题（惯性发挥了主导性作用）。当求解动力平衡状态时，非平衡力以应力波的形式在相邻单元之间传播。由于最小稳定时间增量一般是非常小的值，所以 大多数问题需要大量的时间增量步。将显示动态过程应用于准静态问题需要的特殊考虑：为了获得较经济的解答，必须采取一些方式来加速问题的模拟，因为根据定义，一个静态求解是一个长时间的求解过程，在其固有的时">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-01-21T06:06:30.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello, life">
-<meta name="twitter:description" content="Just Do It">
+<meta name="twitter:title" content="ABAQUS学习笔记7——ABAQUS&#x2F;Explicit准静态分析">
+<meta name="twitter:description" content="显式求解方法：一种真正的动态求解过程，其最初发展是为了模拟高速冲击问题（惯性发挥了主导性作用）。当求解动力平衡状态时，非平衡力以应力波的形式在相邻单元之间传播。由于最小稳定时间增量一般是非常小的值，所以 大多数问题需要大量的时间增量步。将显示动态过程应用于准静态问题需要的特殊考虑：为了获得较经济的解答，必须采取一些方式来加速问题的模拟，因为根据定义，一个静态求解是一个长时间的求解过程，在其固有的时">
 
 
 
@@ -138,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://dorothydingzx.github.io/archives/"/>
+  <link rel="canonical" href="http://dorothydingzx.github.io/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/"/>
 
 
 
 
 
-  <title>归档 | Hello, life</title>
+  <title>ABAQUS学习笔记7——ABAQUS/Explicit准静态分析 | Hello, life</title>
   
 
 
@@ -169,7 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -307,411 +309,222 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://dorothydingzx.github.io/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Dorothy">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello, life">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">ABAQUS学习笔记7——ABAQUS/Explicit准静态分析</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-21T09:26:35+08:00">
+                2018-01-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 14 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ABAQUS/" itemprop="url" rel="index">
+                    <span itemprop="name">ABAQUS</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2018">2018</h2>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
+             <span id="/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/" class="leancloud_visitors" data-flag-title="ABAQUS学习笔记7——ABAQUS/Explicit准静态分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记7——ABAQUS/Explicit准静态分析</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-21T09:26:35+08:00"
-              content="2018-01-21" >
-          01-21
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/20/ABAQUS学习笔记6-接触/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记6-接触</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-20T13:32:14+08:00"
-              content="2018-01-20" >
-          01-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/19/ABAQUS学习笔记5-接触/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记5——接触</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-19T09:23:18+08:00"
-              content="2018-01-19" >
-          01-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/18/ABAQUS学习笔记4-多步骤分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记4——多步骤分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-18T12:14:44+08:00"
-              content="2018-01-18" >
-          01-18
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>显式求解方法：一种真正的动态求解过程，其最初发展是为了模拟高速冲击问题（惯性发挥了主导性作用）。当求解动力平衡状态时，非平衡力以<strong>应力波</strong>的形式在相邻单元之间传播。由于最小稳定时间增量一般是非常小的值，所以 大多数问题需要大量的时间增量步。<br>将显示动态过程应用于准静态问题需要的特殊考虑：为了获得较经济的解答，必须采取一些方式来<strong>加速问题的模拟</strong>，因为根据定义，一个静态求解是一个长时间的求解过程，在其固有的时间尺度上分析模拟常常在计算上是不切实际的，它将需要大量的小的时间增量。<br>带来的问题：随着加载速度的增加，静态平衡的状态卷入了动力学的因素，<strong>惯性力</strong>的影响更加显著。<br><strong>准静态（quasi-static）分析</strong>的目标：在保持惯性力的影响不显著的前提下，用最短的时间进行模拟。<br>准静态分析也可以在ABAQUS/Standard中进行，当惯性力可以忽略时，在ABAQUS/Standard中的准静态分析用来模拟<strong>含时间相关材料响应</strong>（蠕变、膨胀、粘弹性和双层粘塑性）的线性或非线性问题。<br><a id="more"></a></p>
+<h2 id="1-显式动态问题"><a href="#1-显式动态问题" class="headerlink" title="1 显式动态问题"></a>1 显式动态问题</h2><p>理解在缓慢、准静态加载情况、快速加载情况之间的区别：分析的速度经常可以提高许多而不会严重地降低准静态求解的质量，缓慢情况下和有一些加速情况下的最终结果几乎是一致的。但是，如果分析的速度增加到一个点，使得惯性影响占主导地位时，解答就会趋向于<strong>局部化</strong>，而且结果与准静态的结果有一定区别。</p>
+<h2 id="2-加载速率"><a href="#2-加载速率" class="headerlink" title="2 加载速率"></a>2 加载速率</h2><p>自然时间（nature time）：一个物理过程所占用的实际时间。对于一个准静态过程在自然时间中进行分析，一般有把握假设将得到准确的静态结果。如果实际事件真实地发生在其固有时间尺度内，并在结束时其速度为零，则动态分析应该能够得到这样的事实，即分析实际上已经达到了稳态。可以<strong>提高加载速率</strong>使相同的物理事件在较短的时间内发生，只要解答保持与真实的静态解答几乎相同，而且动态效果始终保持不明显。</p>
+<h3 id="2-1-光滑幅值曲线"><a href="#2-1-光滑幅值曲线" class="headerlink" title="2.1 光滑幅值曲线"></a>2.1 光滑幅值曲线</h3><p>对于准确和高效的准静态分析，要求施加的载荷尽可能光滑，突然、急促的运动会产生应力波，导致振荡或不准确的结果。以可能最光滑的方式施加载荷要求<strong>加速度</strong>从一个增量步到下一个增量步只能改变一个小量。如果加速度是光滑的，随其变化的速度和位移也是光滑的。<br>ABAQUS有一条简单、固定的<strong>光滑步骤（smooth step）幅值曲线</strong>，自动地创建一条光滑的<strong>载荷幅值</strong>。当定义一个光滑步骤幅值曲线时，ABAQUS自动地用曲线连接每一组数据对，该曲线的一阶和二阶导数是光滑的，在每一组数据点上，斜率为零。由于这些一阶和二阶导数都是光滑的，故可以采用<strong>位移加载</strong>，应用一条光滑步骤幅值曲线，只用初始的和最终的数据点，而中间的运动将是光滑的。使用这种载荷幅值，允许进行准静态分析，而不会产生由于加载速率不连续引起的波动。</p>
+<h3 id="2-2-结构问题"><a href="#2-2-结构问题" class="headerlink" title="2.2 结构问题"></a>2.2 结构问题</h3><p>在静态分析中，结构的<strong>最低阶模态</strong>通常控制结构的响应。如果已知最低阶模态的频率和相应的周期，则可以估算出得到适当的静态响应所需要的时间。<br>例如，应用在ABAQUS/Standard中的特征频率提取过程可以容易地计算自然频率，若结构的最低阶模态的频率大约为250Hz，对应4ms的周期，为了使结构在4ms内发生0.2m的变形。则其速度应为50m/s。虽然50m/s似乎是一个高速碰撞速度，而惯性力相对于整个结构的刚度已经成为次要的了，结构响应为很好的准静态响应。</p>
+<h2 id="3-质量放大"><a href="#3-质量放大" class="headerlink" title="3 质量放大"></a>3 质量放大</h2><p><strong>质量放大（mass scaling）</strong>可以在不需要人为提高加载速率的情况下降低运算成本。对于含有<strong>率相关材料</strong>或<strong>率相关阻尼</strong>（如减震器）的问题，质量放大是唯一能够节省求解时间的选择。在这种模拟中，不要选择提高加载速率，因为材料的应变率会与加载速率同比例增加，导致分析过程改变。<br>模型的<strong>稳定极限</strong>是所有单元的最小稳定时间增量，可以表示为：<br>$$\Delta t=\frac{L^{e}}{c_{d}}$$  式中：$L^{e}$ 是特征单元长度； $c_{d}$ 是材料的膨胀波速。线弹性材料在破怂逼为零时的膨胀波速为：<br>$$c_{d}=\sqrt{\frac{E}{\rho}}$$ 根据上面的公式，人为地将材料密度$\rho$增加因数$f^{2}$倍，则波速就会降低$f$倍，从而稳定时间增量将提高$f$倍。<br>过度地质量放大，正如过度地提高加载速率，可能导致错误的结果。为了确定一个可接受的质量放大因数，建议的方法类似于确定一个可接受的加载速率放大因数。两种方法的唯一区别：与质量放大相关的加载因子是质量放大因数的平方根，而与加载速率放大相关的加速因子与加载速率放大因数成正比。例如，<strong>一个100倍的质量方法因数恰好对应于10倍的加载速率因数</strong>。<br>通过使用固定的或可变的质量放大，可以有多重方法来实现质量放大。质量放大的定义也可以随着分析步而改变，有很大的灵活性。</p>
+<h2 id="4-能量平衡"><a href="#4-能量平衡" class="headerlink" title="4 能量平衡"></a>4 能量平衡</h2><p>评估是否产生了正确的准静态响应，最具普遍意义的方式是研究模型中的各种能量，在ABAQUS/Explicit中的能量平衡方程：<br>$$E_{1}+E_{V}+E_{FD}+E_{KE}-E_{W}=E_{total}=constant$$ 式中，$E_{1}$为内能（包括 弹性和塑性应变能）；$E_{V}$为粘性耗散吸收的能量；$E_{FD}$为摩擦耗散能；$E_{KE}$为动能；$E_{W}$为外加载荷所做的功；$E_{total}$为系统中的总能量，必须是个常数。当评价结果只对变形体感兴趣时，评价能量平衡时应在$E_{total}$中<strong>扣除刚体的动能</strong>。</p>
+<h2 id="5-小结"><a href="#5-小结" class="headerlink" title="5 小结"></a>5 小结</h2><ul>
+<li>如果一个准静态分析以其固有时间尺度进行，那么其解答几乎与一个真正的静态解答相同。</li>
+<li>采用<strong>加载速率放大</strong>或<strong>质量放大</strong>的方法来获得准静态的解答，使用较少的CPU时间常常是必要的。</li>
+<li>只要解答不发生<strong>局部化</strong>，加载速率常常可以增加一些。如果加载速率提高过大，惯性力会给解答带来不利的影响。</li>
+<li>质量放大是提高加载速率的另一种办法。当使用<strong>率相关</strong>材料时，最好采用质量放大的方法，因为提高加载速率将人为地改变材料的参数。</li>
+<li>在静态分析中，结构的<strong>最低模态</strong>控制着响应。如果知道了最低阶的自然频率以及对应的最低阶模态的周期，则可以估计获得正确的静态响应所需要的时间。</li>
+<li>有必要以各种加载速率运行，以确定一个可接受的加载速率。</li>
+<li>在大部分模拟中，<strong>变形材料的动能</strong>决不能超过其内能的一个很小的百分比（典型的为5%~10%）。</li>
+<li>在准静态分析中，为了描述位移，使用一条<strong>光滑步骤幅值曲线</strong>是最有效的方式。</li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/13/Bolted-connections-in-Eurocode-3-3/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(3)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-13T14:16:54+08:00"
-              content="2018-01-13" >
-          01-13
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/12/Bolted-connections-in-Eurocode-3-2/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(2)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-12T17:25:40+08:00"
-              content="2018-01-12" >
-          01-12
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/11/Bolted-connections-in-Eurocode-3-1/" itemprop="url">
-              
-                <span itemprop="name">Bolted connections in Eurocode 3(1)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-11T15:43:16+08:00"
-              content="2018-01-11" >
-          01-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/09/PS修复废片-Camera-RAW/" itemprop="url">
-              
-                <span itemprop="name">PS修复废片-Camera Raw</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-09T16:34:41+08:00"
-              content="2018-01-09" >
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/09/ABAQUS学习笔记3-显式非线性动态分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记3——显式非线性动态分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-09T12:03:36+08:00"
-              content="2018-01-09" >
-          01-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/08/ABAQUS学习笔记2—-显式非线性动态分析/" itemprop="url">
-              
-                <span itemprop="name">ABAQUS学习笔记2——显式非线性动态分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-08T22:22:32+08:00"
-              content="2018-01-08" >
-          01-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+    
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Dorothy
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://dorothydingzx.github.io/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/" title="ABAQUS学习笔记7——ABAQUS/Explicit准静态分析">http://dorothydingzx.github.io/2018/01/21/ABAQUS学习笔记7-ABAQUS-Explicit准静态分析/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-ND</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+
+      </div>
+    
+
+      <div>
+        
+        
+        
+      </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/有限元理论/" rel="tag"># 有限元理论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/20/ABAQUS学习笔记6-接触/" rel="next" title="ABAQUS学习笔记6-接触">
+                <i class="fa fa-chevron-left"></i> ABAQUS学习笔记6-接触
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -719,6 +532,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -739,8 +556,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -826,6 +652,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-显式动态问题"><span class="nav-number">1.</span> <span class="nav-text">1 显式动态问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-加载速率"><span class="nav-number">2.</span> <span class="nav-text">2 加载速率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-光滑幅值曲线"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 光滑幅值曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-结构问题"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 结构问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-质量放大"><span class="nav-number">3.</span> <span class="nav-text">3 质量放大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-能量平衡"><span class="nav-number">4.</span> <span class="nav-text">4 能量平衡</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-小结"><span class="nav-number">5.</span> <span class="nav-text">5 小结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -946,11 +788,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
