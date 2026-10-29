@@ -3,8 +3,6 @@ title: "Extracting data of node set from odb in ABAQUS"
 date: 2019-05-16 11:33:08
 categories:
 - "ABAQUS"
-tags:
-- "Method"
 redirect_from:
 - /archives/ghj43h.html
 ---

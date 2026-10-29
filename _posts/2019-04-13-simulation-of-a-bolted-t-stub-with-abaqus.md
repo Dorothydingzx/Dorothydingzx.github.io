@@ -3,9 +3,6 @@ title: "Simulation of a bolted T-stub with ABAQUS"
 date: 2019-04-13 18:20:29
 categories:
 - "ABAQUS"
-tags:
-- "Example"
-- "FEA"
 redirect_from:
 - /archives/hfkw9g.html
 ---

@@ -3,8 +3,6 @@ title: "Run ANSYS with MATLAB for parametric analysis"
 date: 2019-12-20 08:10:18
 categories:
 - "ANSYS"
-tags:
-- "Method"
 redirect_from:
 - /archives/dry5hf.html
 ---

@@ -3,8 +3,6 @@ title: "Extract Matrix from ABAQUS"
 date: 2018-07-14 21:47:40
 categories:
 - "ABAQUS"
-tags:
-- "Method"
 redirect_from:
 - /archives/d702tw.html
 ---

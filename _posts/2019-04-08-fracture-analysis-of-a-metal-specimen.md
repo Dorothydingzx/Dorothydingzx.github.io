@@ -3,9 +3,6 @@ title: "Fracture analysis of a metal specimen"
 date: 2019-04-08 14:39:53
 categories:
 - "ABAQUS"
-tags:
-- "Example"
-- "FEA"
 redirect_from:
 - /archives/djukhs.html
 ---
