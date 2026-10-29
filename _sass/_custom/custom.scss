@@ -1,0 +1,325 @@
+// Custom styles.
+
+// GPX map blocks
+// Rendered from ```gpx fences by assets/js/src/gpx-map.js
+// --------------------------------------------------
+
+// Hidden until the script replaces it with a map; re-shown by the script
+// if Leaflet fails to load, and by the <noscript> rule in _scripts/gpx-map.html.
+.language-gpx-map { display: none; }
+
+// Hiding the <code> alone leaves kramdown's empty grey <pre> on screen until
+// Leaflet loads. Interpolated so Sass 3.7 passes :has() through unparsed.
+#{'pre:has(> code.language-gpx-map)'} { display: none; }
+
+.gpx-figure {
+  max-width: 100%;
+  margin: 1.5em 0;
+
+  .gpx-map {
+    // normalize.scss sets content-box globally, so width:100% plus the border
+    // would overflow the column and give the page a horizontal scrollbar.
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background: $whitesmoke;
+
+    // keep Leaflet's panes beneath the theme's sticky chrome
+    .leaflet-pane,
+    .leaflet-control { z-index: 1; }
+  }
+
+  .gpx-caption {
+    margin-top: .6em;
+    color: $grey-dark;
+    font-size: .9em;
+    text-align: center;
+
+    &.gpx-error { color: $red; }
+  }
+
+  .gpx-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-gap: 10px;
+    gap: 10px;
+    margin-top: 14px;
+
+    figure { margin: 0; }
+
+    img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      object-fit: cover;
+      border-radius: 4px;
+    }
+
+    figcaption {
+      margin-top: .35em;
+      color: $grey-dark;
+      font-size: .82em;
+      text-align: center;
+    }
+  }
+}
+
+// Photo pins dropped on the track, and their popups
+// --------------------------------------------------
+
+.gpx-map {
+  .gpx-pin span {
+    display: block;
+    box-sizing: border-box;
+    width: 24px;
+    height: 24px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    background: #d9480f;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .4);
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  // Required credit, collapsed behind an (i). The text is clipped rather than
+  // removed, so it stays in the DOM for screen readers and for anyone who
+  // hovers, taps, or tabs into the links.
+  .leaflet-control-attribution.gpx-attr {
+    max-width: 2em;
+    overflow: hidden;
+    padding: 0 4px;
+    background: rgba(255, 255, 255, .7);
+    color: $grey-dim;
+    font-size: 10px;
+    line-height: 1.6;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: max-width .18s ease;
+
+    &::before {
+      content: "\24D8";   // circled latin small letter i
+      margin-right: 4px;
+    }
+
+    &:hover,
+    &:focus-within,
+    &.is-open { max-width: 100%; }
+
+    a { border-bottom: none; }
+  }
+
+  // Full screen / recentre share Leaflet's .leaflet-bar so all four buttons
+  // sit in one stack.
+  .leaflet-bar a.gpx-ctl {
+    color: $black-dim;
+    text-decoration: none;
+    border-bottom: none;   // the theme underlines links by default
+  }
+
+  .leaflet-popup-content {
+    margin: 8px;
+
+    .gpx-popup-link {
+      display: block;
+      border-bottom: none;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        // Cap the height so a portrait photo cannot outgrow the map container
+        // and leave Leaflet nothing to pan into view. Width follows the aspect.
+        width: auto;
+        max-width: 100%;
+        max-height: 240px;
+        border-radius: 3px;
+      }
+    }
+
+    .gpx-popup-cap {
+      display: block;
+      margin-top: .4em;
+      color: $grey-dim;
+      font-size: .85em;
+      text-align: center;
+    }
+  }
+}
+
+// Elevation / speed profile under the map
+// --------------------------------------------------
+
+.gpx-figure {
+  // Boxed to match the map container above and the stats table below.
+  .gpx-chart {
+    margin-top: 12px;
+    padding: 6px 6px 2px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background: #fff;
+  }
+
+  .gpx-chart-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .gpx-chart-grid {
+    stroke: $grey-light;
+    stroke-width: 1;
+    stroke-dasharray: 2 3;
+  }
+
+  .gpx-chart-ele {
+    fill: rgba(217, 72, 15, .16);
+    stroke: #d9480f;
+    stroke-width: 1.5;
+  }
+
+  .gpx-chart-spd {
+    fill: none;
+    stroke: #2b6cb0;
+    stroke-width: 1.5;
+    stroke-opacity: .85;
+  }
+
+  .gpx-chart-cursor {
+    stroke: $black-light;
+    stroke-width: 1;
+  }
+
+  // transparent band that catches the pointer across the plot area
+  .gpx-chart-hit {
+    fill: transparent;
+    cursor: crosshair;
+  }
+
+  .gpx-chart-axis {
+    fill: $grey-dark;
+    // viewBox units, so this scales down with the SVG; the chart's PL/PR/PB
+    // padding in gpx-map.js is sized to match.
+    font-size: 16px;
+    text-anchor: middle;
+
+    // Each scale wears its own curve's colour; the distance ticks along the
+    // bottom stay grey, since they belong to neither.
+    &.gpx-chart-axis-y { text-anchor: end; }
+    &.gpx-chart-axis-e { fill: #d9480f; }
+    &.gpx-chart-axis-s { text-anchor: start; fill: #2b6cb0; }
+  }
+
+  .gpx-chart-readout {
+    color: $grey-dark;
+    font-size: .82em;
+    text-align: center;
+    min-height: 1.2em;
+  }
+}
+
+// Stats banner under the profile
+// --------------------------------------------------
+
+.gpx-figure {
+  // Flex rather than grid: a grid leaves empty cells on the last row, which
+  // showed through as grey gaps. Flex items grow to fill whatever row they
+  // land on, so 9 tiles wrap as 5+4 or 6+3 with no holes at any width.
+  .gpx-stats {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    background: #fff;
+    overflow: hidden;   // clips the outermost dividers below
+  }
+
+  .gpx-stat {
+    flex: 1 1 96px;
+    padding: 9px 8px;
+    text-align: center;
+    // Dividers drawn per cell; the container's overflow trims the ones that
+    // would otherwise double up on the outer edges.
+    box-shadow: -1px 0 0 $border-color, 0 -1px 0 $border-color;
+  }
+
+  .gpx-stat-value {
+    display: block;
+    color: $black-light;
+    font-size: .95em;
+    font-weight: bold;
+    line-height: 1.3;
+    white-space: nowrap;
+  }
+
+  .gpx-stat-label {
+    display: block;
+    margin-top: 2px;
+    color: $grey-dark;
+    font-size: .72em;
+    letter-spacing: .02em;
+  }
+}
+
+// Full-screen map. Deliberately two rules rather than one selector list: a
+// browser that does not know one of these pseudo-classes discards the whole
+// list, so combining them would break the other.
+.gpx-map:fullscreen {
+  border: 0;
+  border-radius: 0;
+}
+
+.gpx-map:-webkit-full-screen {
+  border: 0;
+  border-radius: 0;
+}
+
+// One weight for all four map buttons. Leaflet ships +/- as bold 18px
+// monospace, which sits much heavier than the full-screen and recentre
+// glyphs beside it. Needs .gpx-figure as well as .gpx-map: Leaflet's own
+// stylesheet is injected at runtime and so lands after ours in the cascade,
+// which would win any tie on specificity.
+.gpx-figure .gpx-map .leaflet-bar a {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 26px;
+  text-align: center;
+  text-indent: 0;
+}
+
+
+// Comments carried over from the WordPress blog
+// --------------------------------------------------
+.archived-comments {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  h3 { margin-bottom: 4px; }
+  .archived-comments-note { color: #999; font-size: 13px; margin-bottom: 20px; }
+  ol { list-style: none; margin: 0; padding: 0; }
+  .archived-comment { margin: 0 0 18px; padding: 0; }
+  .archived-comment::before { content: none; }
+  .archived-comment-meta { font-size: 14px; }
+  .archived-comment-meta span { color: #999; margin-left: 8px; font-size: 12px; }
+  .archived-comment-body { font-size: 14px; word-wrap: break-word; max-height: 360px; overflow-y: auto; }
+  .archived-comment-body p { margin: 4px 0 8px; }
+  .archived-comment-children { margin: 12px 0 0 24px !important; padding-left: 14px !important; border-left: 2px solid #eee; }
+}
+
+// My Painting gallery
+// --------------------------------------------------
+.painting-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin: 10px 0 40px;
+  .painting { width: 186px; margin: 0; text-align: center; }
+  .painting a { border-bottom: none; }
+  .painting img { width: 186px; height: 132px; object-fit: cover; border-radius: 4px; }
+  .painting figcaption { font-size: 12px; color: #666; line-height: 1.4; margin-top: 4px; }
+}
