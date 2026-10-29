@@ -3,9 +3,6 @@ title: "Transverse shear stiffness of beam in ABAQUS"
 date: 2018-10-03 17:39:37
 categories:
 - "ABAQUS"
-tags:
-- "Example"
-- "FEA"
 redirect_from:
 - /archives/khedji.html
 ---

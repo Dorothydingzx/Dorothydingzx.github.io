@@ -3,9 +3,6 @@ title: "Examples of extracting matrices from ABAQUS"
 date: 2018-07-17 15:26:19
 categories:
 - "ABAQUS"
-tags:
-- "Example"
-- "Method"
 redirect_from:
 - /archives/b7ohpp.html
 ---

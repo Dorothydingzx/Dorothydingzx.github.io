@@ -3,8 +3,6 @@ title: "Multi spring elements in local coordinate system in ANSYS"
 date: 2020-03-19 08:55:24
 categories:
 - "ANSYS"
-tags:
-- "Method"
 redirect_from:
 - /archives/m4g0vs.html
 ---

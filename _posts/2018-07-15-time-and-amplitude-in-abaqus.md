@@ -3,8 +3,6 @@ title: "Time and Amplitude in ABAQUS"
 date: 2018-07-15 19:05:26
 categories:
 - "ABAQUS"
-tags:
-- "FEA"
 redirect_from:
 - /archives/9x327m.html
 ---

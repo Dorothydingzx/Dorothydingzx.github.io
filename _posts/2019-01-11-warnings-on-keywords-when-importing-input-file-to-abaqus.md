@@ -3,9 +3,6 @@ title: "Warnings on keywords when importing input file to ABAQUS"
 date: 2019-01-11 13:27:39
 categories:
 - "ABAQUS"
-tags:
-- "FEA"
-- "Method"
 redirect_from:
 - /archives/qwsw52.html
 ---

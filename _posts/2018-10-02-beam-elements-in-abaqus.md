@@ -3,8 +3,6 @@ title: "Beam elements in ABAQUS"
 date: 2018-10-02 20:39:51
 categories:
 - "ABAQUS"
-tags:
-- "FEA"
 redirect_from:
 - /archives/hh8aqe.html
 ---

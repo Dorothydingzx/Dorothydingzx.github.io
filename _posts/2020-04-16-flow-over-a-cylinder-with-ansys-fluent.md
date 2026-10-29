@@ -3,8 +3,6 @@ title: "Flow over a cylinder with ANSYS Fluent"
 date: 2020-04-16 04:12:33
 categories:
 - "ANSYS"
-tags:
-- "CFD"
 redirect_from:
 - /archives/fdh6wv.html
 ---

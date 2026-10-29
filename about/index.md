@@ -6,22 +6,22 @@ title: About
 
 ### About My Blog
 
-记录科研分享生活，拥抱这个世界~~
-
 Recording research, sharing life, embracing the world~~
 
-2017.12.27 搭建博客  
-2018.01.04 发布第一篇博文  
-2018.07.10 弃用原博客，开启新篇章  
-2018.09.08 将原有博客转移到新的服务器
+2017.12.27 Set up this blog  
+2018.01.04 Published my first post  
+2018.07.10 Retired the original blog and started a new chapter  
+2018.09.08 Moved the blog to a new server  
+2026.10.29 Moved the blog to GitHub Pages
 
 ### About Me
 
-一个爱吃爱玩爱折腾的girl，只希望可以活得开开心心，身边的人也开开心心~~
+Welcome to my little corner of the internet!
 
-A girl who loves eating, playing, doing what she likes, and only wants a happy life and people around her being happy too~~
+I enjoy traveling, hiking in national parks, painting, and DIY projects. This blog is where I share notes on engineering simulation with ABAQUS and ANSYS, along with my paintings and other creative projects.
+
+Thanks for stopping by!
 
 Ph.D. in Civil Engineering  
 MEng in Computer Science  
-University of Connecticut  
-My Behance: <https://www.behance.net/zxding>
+University of Connecticut
