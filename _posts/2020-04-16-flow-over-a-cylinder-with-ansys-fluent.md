@@ -15,18 +15,18 @@ To capture the famous Von Karman Street, and also to understand why the flow at 
 
 Case 1: Re = 10
 
-![](/uploads/images/2020/votex_Re-10.gif){:width="640"}
+![](/uploads/images/2020/2020-04-16-flow-over-a-cylinder-with-ansys-fluent-1.gif){:width="640"}
 
 Case 2: Re = 100
 
-![](/uploads/images/2020/votex_Re-100.gif){:width="640"}
+![](/uploads/images/2020/2020-04-16-flow-over-a-cylinder-with-ansys-fluent-2.gif){:width="640"}
 
 To better view the change of flow after the cylinder, the vectors are shown below.
 
 Case 1: Re = 10
 
-![](/uploads/images/2020/Snipaste_2020-04-15_15-26-30.png){:width="1537"}
+![](/uploads/images/2020/2020-04-16-flow-over-a-cylinder-with-ansys-fluent-3.png){:width="1537"}
 
 Case 2: Re = 100
 
-![](/uploads/images/2020/Snipaste_2020-04-15_15-25-41.png){:width="1602"}
+![](/uploads/images/2020/2020-04-16-flow-over-a-cylinder-with-ansys-fluent-4.png){:width="1602"}

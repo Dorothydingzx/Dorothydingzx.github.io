@@ -72,13 +72,13 @@ The Timoshenko beams can be subjected to **large axial strains**. The axial stra
 
 **Node ordering on elements**
 
-![](/uploads/images/2018/ebeam-node-num-nls.png){:width="391"}
+![](/uploads/images/2018/2018-10-02-beam-elements-in-abaqus-1.png){:width="391"}
 
 For beams in space an additional node may be given after a beam element’s connectivity (in the element definition—see [“Element definition,” Section 2.2.1](https://www.sharcnet.ca/Software/Abaqus/6.14.2/v6.14/books/usb/pt01ch02s02aus11.html)) to define the approximate direction of the first cross-section axis, **n**₁. See [“Beam element cross-section orientation,” Section 29.3.4](https://www.sharcnet.ca/Software/Abaqus/6.14.2/v6.14/books/usb/pt06ch29s03alm09.html), for details.
 
 **Numbering of integration points for output**
 
-![](/uploads/images/2018/ebeam-int-pts-nls.png){:width="430"}
+![](/uploads/images/2018/2018-10-02-beam-elements-in-abaqus-2.png){:width="430"}
 
 **Choosing the beam elements**
 
@@ -152,9 +152,9 @@ A general beam section:
 
 In ABAQUS/CAE, you can define a beam section with generalized shape shown as below. The section geometry properties can be defined in this dialog window. The location of the centroid and shear center, the output points as well as the transverse shear stiffness are allowed to define directly as figured below. The keywords generated in input file are listed below.
 
-![](/uploads/images/2018/beam-element-generalized-shape.png){:width="394"}
+![](/uploads/images/2018/2018-10-02-beam-elements-in-abaqus-3.png){:width="394"}
 
-![](/uploads/images/2018/beam-element-generalized-shape-2-1.png){:width="476"}
+![](/uploads/images/2018/2018-10-02-beam-elements-in-abaqus-4.png){:width="476"}
 
 ```
 ** Section: pipe Profile: Profile-2
@@ -276,7 +276,7 @@ The transverse shear stiffness are specified. The keywords in input file are lis
 
 The force-displacement curves of the vertex are illustrated in the following figure and accord well with each other.
 
-![](/uploads/images/2018/QQ截图20180930202945.png){:width="577"}
+![](/uploads/images/2018/2018-10-02-beam-elements-in-abaqus-5.png){:width="577"}
 
 **Notes:**
 

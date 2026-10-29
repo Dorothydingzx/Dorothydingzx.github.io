@@ -70,7 +70,7 @@ $$
 
 As concluded in \[1\], fracture strain is critical to fracture of coupon, while stress triaxiality and strain rate has little influence. Displacement at failure (will be discussed below) has certain impact on fracture and results with small values are consistent. In this analysis, values in \[1\] are adopted, shown in the following figures.
 
-![](/uploads/images/2019/Snipaste_2019-04-13_18-02-25.png){:width="506"}
+![](/uploads/images/2019/2019-04-08-fracture-analysis-of-a-metal-specimen-1.png){:width="506"}
 
 ### \#2. Damage evolution for ductile metals
 
@@ -78,7 +78,7 @@ Damage evolution capability for ductile metals assumes that damage is characteri
 
 Displacement type is adopted in damage evolution. Once the damage initiation criterion has been reached, the effective plastic displacement can be defined with the characteristic length of the element. Instantaneous failure will occur if the plastic displacement at failure is specified as 0, which is not recommended by abaqus because it causes a sudden drop of the stress at material point that can lead to dynamic instabilities. The linear damage evolution law defines a truly linear stress-strain softening response only if the effective response of the material is perfectly plastic (constant yield stress) after damage initiation. For mare details, one can refer to [Abaqus Analysis User’s Guide](http://130.149.89.49:2080/v6.14/books/usb/default.htm).
 
-![](/uploads/images/2019/Snipaste_2019-04-07_23-04-36.png){:width="540"}
+![](/uploads/images/2019/2019-04-08-fracture-analysis-of-a-metal-specimen-2.png){:width="540"}
 
 ### \# 3. Element removal from mesh
 
@@ -86,13 +86,13 @@ One point should be noticed that **Status** in field output should be ticked, so
 
 The removal of a solid element takes place, by default, when maximum degradation is reached at any one integration point in abaqus/explicit, while only all of the section points at all the integration locations of an element reach maximum degradation in abaqus/standard.
 
-![](/uploads/images/2019/Snipaste_2019-04-07_22-54-09.png){:width="436"}
+![](/uploads/images/2019/2019-04-08-fracture-analysis-of-a-metal-specimen-3.png){:width="436"}
 
 ## Simulation results
 
 A coupon is analyzed with dynamic explicit method and displacement control is adopted with one boundary fixed and the other boundary coupled to a reference point. Smooth step for amplitude with a displacement rate of 10mm in 5000 seconds.
 
-![](/uploads/images/2019/Snipaste_2019-04-08_00-14-13.png){:width="1239"}
+![](/uploads/images/2019/2019-04-08-fracture-analysis-of-a-metal-specimen-4.png){:width="1239"}
 
 As can be seen in the above figure, elements with equivalent plastic strain (PEEQ) reaching fracture strain are deleted in viewport. However, the fracture of specimen does not locate in the middle part, which puzzling me. I have checked the geometric information, the boundary and loading conditions, as well as the materials. Other methods like excluding coupling in interaction have also be tested and the same results are achieved.
 
