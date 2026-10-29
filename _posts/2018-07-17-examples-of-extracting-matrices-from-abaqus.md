@@ -11,7 +11,7 @@ redirect_from:
 
 This is a plane steel frame with box sections subjected to a point load at one node figured as below.
 
-![extract matrix example2](/uploads/images/2018/extract-matrix-example2.png){:width="452"}
+![extract matrix example2](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-1.png){:width="452"}
 
 An dynamic implicit analysis step was defined and the following lines were added at the end of input file.
 
@@ -27,25 +27,25 @@ An dynamic implicit analysis step was defined and the following lines were added
 
 After the analysis completed, the Data file will be available and a screen shoot is provided below. The *.mtx* files are generated in the file folder, however, there is no *dyimp_LOAD2.mtx* file and this is a problem remained. I still don’t know how to fix it.
 
-![extract matrix example1](/uploads/images/2018/extract-matrix-example1.png){:width="645"}
+![extract matrix example1](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-2.png){:width="645"}
 
 ## 3D frame
 
 This is a 3D frame with rectangular sections subjected to two point loads. Firstly, the columns and beams were built, then they are assembled in ASSEMBLY section and finally I used the merge function and suppressed the original instances to form this frame. I also chose the Remove button to for the intersecting boundaries. The masses were applied on the nodes and as such the material density was set to zero. A dynamic implicit analysis case was defined and one element per member is used.
 
-![3D frame matrix](/uploads/images/2018/3d-frame-matrix2.png){:width="463"}
+![3D frame matrix](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-3.png){:width="463"}
 
 The same as the example of 2D frame, the codes were added to extract matrices from abaqus. The matrices were written in corresponding files.
 
 However, I found the size of matrices are not consistent with the number of nodes. There are 16 nodes in this frame and the degree of freedom is 16\*6=96, but the size of matrices are 144\*144 and this is puzzling. To find out the reason of this, I re-extracted the matrices in coordinate form and defined a frequency step to output the element matrices. Also, I checked the numbers of nodes and elements in MESH section as follow.
 
-![3D frame matrix numbers](/uploads/images/2018/3d-frame-matrix-numbers.png){:width="518"}
+![3D frame matrix numbers](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-4.png){:width="518"}
 
 From the numbers in MESH section, there is no error in it. The matrices in Coordinate form show that both the row and column labels have **negative values**. The numbers are from -24 to +16 and the negative part is very confusing. The 24 negative numbers are the geometrical nodes (3\*4\*2) as I understand. However, why these degree of freedoms are not condensed is unknown, probably there is no defined restrains in INTERACTION section. The element matrices file shows there are totally 24 elements in the model and this result correspond with the structure.
 
 From these results, it can be concluded that the negative numbers are from the assembling of global matrices. I guess this may result from the merge of beams and columns. Thus, I built another frame with Tie constrains on the nodes at the same position. The numbers in MESH section is illustrated as below.
 
-![3D frame matrix numbers2.png](/uploads/images/2018/3d-frame-matrix-numbers21.png){:width="484"}
+![3D frame matrix numbers2.png](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-5.png){:width="484"}
 
 It can be seen that every column has 4 nodes and every beam has 2, the sum is 40 nodes. In the matrices in coordinate form, the number of nodes is from 1 to 40, corresponding to total number of nodes. In the matrices in matrix input form, the maximum number of row and column labels is 96, equals to 16\*6, meaning the nodes at the same position are condensed to one in global matrix because of the Tie constrains.
 
@@ -94,7 +94,7 @@ The vector in *LOAD.mxt* file is listed as
 
 I found the reason for negative values in row and column labels in matrix yesterday and tried to check this out this morning. The reason for this phenomenon lies on the method of merge. Three methods, geometry, mesh and both, are included in ABAQUS, as shown below.
 
-![](/uploads/images/2018/methodofmesh.png){:width="528"}
+![](/uploads/images/2018/2018-07-17-examples-of-extracting-matrices-from-abaqus-6.png){:width="528"}
 
 In the first method, Geometry, only the intersecting boundaries are removed and the duplicate nodes are also removed. In the second method, Mesh, the duplicated elements as well as the nodes can be removed. A prompt message will emerge “The nodes highlighted in magenta will be merged. OK to merge?” The matrix exacted by this method do not contain row and column labels with negative values.
 

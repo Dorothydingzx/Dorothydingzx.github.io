@@ -28,11 +28,11 @@ I am recently using the dynamic analysis in Abaqus, so I decided to summarize th
 
 A steel frame loaded with one point load with the value 10, the Step time and Amplitude definition with Tubular is listed in the following table. The results of time and force are also listed.
 
-![Time in ABAQUS 1](/uploads/images/2018/time-in-abaqus-1.png){:width="579"}
+![Time in ABAQUS 1](/uploads/images/2018/2018-07-15-time-and-amplitude-in-abaqus-1.png){:width="579"}
 
 The Point Load – Step time curve of the last circumstance is illustrated below. The point load is applied up to 5 times the defined load to structure instantly, the curve at point (0.01, 50.5) is just the 0.01 times the defined load plus the 5 times the defined load.
 
-![Time in ABAQUS 2](/uploads/images/2018/time-in-abaqus-2.png){:width="600"}
+![Time in ABAQUS 2](/uploads/images/2018/2018-07-15-time-and-amplitude-in-abaqus-2.png){:width="600"}
 
 It can be concluded that:
 

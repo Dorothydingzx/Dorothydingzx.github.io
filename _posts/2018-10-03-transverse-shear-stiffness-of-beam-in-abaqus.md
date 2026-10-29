@@ -104,11 +104,11 @@ The default value of SCF for first-order elements is defined as $$SCF = \frac{{k
 | 2500     | 0.0174                      | 1                | 0.0174                          |
 | 250000   | 0.0002                      | 1                | 0.0002                          |
 
-![](/uploads/images/2018/QQ截图20181003160453.png){:width="607"}
+![](/uploads/images/2018/2018-10-03-transverse-shear-stiffness-of-beam-in-abaqus-1.png){:width="607"}
 
 The force-displacement curves with SCF=(0.0001, 0.2, calculated in abaqus, 0.25) and stiffness factor=1 are very close to each other with the relative values of $${\overline K _{\alpha 3}}$$ approach to 1.0. Also, curves with SCF=0.25, stiffness factor=(10.7, 100, 1000) accord well with each other with the relative values of $${\overline K _{\alpha 3}}$$ greater than 10.0 and vary each other. The obvious differences between curves with SCF=0.25, stiffness factor=(1, 0.64, 10.7) are observed in the above figure and the resistance of frame enhances with higher transverse shear stiffness.
 
-![](/uploads/images/2018/QQ截图20181003160504.png){:width="699"}
+![](/uploads/images/2018/2018-10-03-transverse-shear-stiffness-of-beam-in-abaqus-2.png){:width="699"}
 
 With the increase in SCF value (0.25, 25, 2500, 250000) and a constant stiffness factor 1.0, the relative value of $${\overline K _{\alpha 3}}$$ decreases and the curves lower. The difference between SCF values (2500, 250000) is slight and conclusion can be made that when the the relative value of $${\overline K _{\alpha 3}}$$ is lower than 0.02, the displacements of structures are similar with different SCF values.
 
@@ -131,11 +131,11 @@ The default value of SCF for second-order elements is 0.25 and different SCF val
 | 2500       | 0.9944                      | 1                | 0.9944                          |
 | **250000** | **0.6396**                  | **1**            | **0.6396**                      |
 
-![](/uploads/images/2018/QQ截图20181003160950.png){:width="582"}
+![](/uploads/images/2018/2018-10-03-transverse-shear-stiffness-of-beam-in-abaqus-3.png){:width="582"}
 
 The force-displacement curves with SCF=(0.000001, 0.25, calculated in abaqus) and stiffness factor=1 are very close to each other with the relative values of $${\overline K _{\alpha 3}}$$ equal to 1.0. Also, curves with SCF=0.25, stiffness factor=(10, 100, 1000) accord well with each other with the relative values of $${\overline K _{\alpha 3}}$$ greater than 10.0 and vary each other. The obvious differences between curves with SCF=0.25, stiffness factor=(1, 0.64, 10) are observed in the above figure. The resistance of frame enhances with higher transverse shear stiffness and the enhancement is limited.
 
-![](/uploads/images/2018/QQ截图20181003161001.png){:width="700"}
+![](/uploads/images/2018/2018-10-03-transverse-shear-stiffness-of-beam-in-abaqus-4.png){:width="700"}
 
 The relative values of $${\overline K _{\alpha 3}}$$ with SCF=(0.25, 25, 2500) and a constant stiffness factor 1.0 are almost the same and the curves of them are also close to each other. The relative values of $${\overline K _{\alpha 3}}$$ with (SCF, stiffness)=((0.25, 0.64) and (250000, 1) are very close to each other and the curves accord well meeting the regulation of similar values. Conclusion can be drawn that the force-displacement curve is in direct proportion to the relative value of effective shear stiffness.
 

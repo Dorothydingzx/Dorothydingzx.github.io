@@ -17,7 +17,7 @@ In this testing example, I used a rotated cantilever beam with two spring elemen
 
 It is worthwhile to mention, you will get warning message like `Nodes I and J of element 1 ( COMBIN39 ) are not coincident.` after running the codes below, and this is because the two nodes of spring element should be at the same position. I used different nodes just to show the rotation more clearly. The results are the same as those from the correct model.
 
-![](/uploads/images/2020/Snipaste_2020-03-18_20-54-14.png){:width="1038"}
+![](/uploads/images/2020/2020-03-19-multi-spring-elements-in-local-coordinate-system-in-ansys-1.png){:width="1038"}
 
 ### APDL codes
 
@@ -96,7 +96,7 @@ PLESOL, F,X, 0,1.0
 
 Looking at the reaction force (axial component) and the axial displacement of the free end, the force displacement curve is plotted as the following figure. We can see the two points (5,800) and (10,900) defined in the axial spring element are also in this figure. The slope in the hardening part remain the same, which is consistent with the assumption of the spring element. When checking the UY and FY, we can see the values are nearly zero.
 
-![](/uploads/images/2020/Snipaste_2020-03-18_20-54-58.png){:width="1035"}
+![](/uploads/images/2020/2020-03-19-multi-spring-elements-in-local-coordinate-system-in-ansys-2.png){:width="1035"}
 
 ### Pay attention:
 

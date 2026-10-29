@@ -11,7 +11,7 @@ I want to analyze a steel frame with pin connections at both sides or one side a
 
 <!-- more -->
 
-![](/uploads/images/2019/input_file_release.png){:width="1182"}
+![](/uploads/images/2019/2019-01-11-warnings-on-keywords-when-importing-input-file-to-abaqus-1.png){:width="1182"}
 
 In ABAQUS/CAE, I used python to establish the model. It should be noted that I merged the whole model in the **Assembly** section. Then I edited the keywords and added the **\*Release** part before the **\*End Instance**. In the generated input file after successfully finished the job analysis, the nodes and elements are established in the **\*Instance** part. When I import this input file into ABAQUS or just run it with Abaqus Command window, warnings and errors occur as the bottom part in the above figure. The model is then established in the **\*Part** part and the keyword **\*Release** cannot be imported.
 
